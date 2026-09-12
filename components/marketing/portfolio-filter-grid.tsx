@@ -39,19 +39,22 @@ export function PortfolioFilterGrid({ projects }: { projects: PortfolioCard[] })
         ))}
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-3">
-        {visible.map((project) => (
+      <div className="grid gap-6 sm:grid-cols-[2fr_1fr_1fr]">
+        {visible.map((project, index) => (
           <article
             key={project.id}
-            className="group overflow-hidden rounded-3xl bg-card transition-colors"
+            className="group flex flex-col overflow-hidden rounded-3xl bg-card transition-colors"
           >
-            <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
+            <div className="relative h-[200px] w-full overflow-hidden bg-muted sm:h-[240px]">
               <Image
                 src={project.coverImageUrl}
                 alt={project.title}
                 fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes={index === 0 ? "(max-width: 640px) 100vw, 50vw" : "(max-width: 640px) 100vw, 25vw"}
+                className={cn(
+                  "object-center transition-transform duration-500 group-hover:scale-105",
+                  index === 0 ? "object-contain" : "object-cover",
+                )}
               />
             </div>
             <div className="flex items-center justify-between gap-3 p-5">

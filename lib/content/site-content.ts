@@ -161,37 +161,37 @@ export const PORTFOLIO_SEED: Array<{
   localCoverImage: string;
   storagePath: string;
 }> = [
-  {
-    title: "Naturals",
-    slug: "naturals",
-    category: "branding",
-    clientName: "Naturals",
-    description: "Branding and social campaign identity for a haircare label.",
-    tags: ["Branding", "Social Campaign", "Identity"],
-    localCoverImage: "/seed/work-1.png",
-    storagePath: "naturals/cover.png",
-  },
-  {
-    title: "Invira Global",
-    slug: "invira-global",
-    category: "ui_ux",
-    clientName: "Invira Global",
-    description: "Hiring web app UI/UX and creatives.",
-    tags: ["UI/UX", "Web App"],
-    localCoverImage: "/seed/work-2.png",
-    storagePath: "invira-global/cover.png",
-  },
-  {
-    title: "TVS Future Accessories",
-    slug: "tvs-future-accessories",
-    category: "ui_ux",
-    clientName: "TVS Future Accessories",
-    description: "E-commerce website design.",
-    tags: ["E-commerce", "Website"],
-    localCoverImage: "/seed/work-3.png",
-    storagePath: "tvs-future-accessories/cover.png",
-  },
-];
+    {
+      title: "Naturals",
+      slug: "naturals",
+      category: "branding",
+      clientName: "Naturals",
+      description: "Branding and social campaign identity for a haircare label.",
+      tags: ["Branding", "Social Campaign", "Identity"],
+      localCoverImage: "/seed/work-1.png",
+      storagePath: "naturals/cover.png",
+    },
+    {
+      title: "Invira Global",
+      slug: "invira-global",
+      category: "ui_ux",
+      clientName: "Invira Global",
+      description: "Hiring web app UI/UX and creatives.",
+      tags: ["UI/UX", "Web App"],
+      localCoverImage: "/seed/work-2.png",
+      storagePath: "invira-global/cover.png",
+    },
+    {
+      title: "TVS Future",
+      slug: "tvs-future-accessories",
+      category: "ui_ux",
+      clientName: "TVS Future",
+      description: "E-commerce website design.",
+      tags: ["E-commerce", "Website"],
+      localCoverImage: "/seed/work-3.png",
+      storagePath: "tvs-future-accessories/cover.png",
+    },
+  ];
 
 export const PORTFOLIO_CATEGORY_LABELS: Record<PortfolioCategory, string> = {
   branding: "Branding",
