@@ -14,6 +14,7 @@ export default function HomePage() {
         alt="Pixora Studio"
         width={220}
         height={48}
+        className="h-[48px] w-[220px]"
         priority
       />
       <p className="max-w-xl font-label text-xs uppercase tracking-[0.3em] text-brand">
