@@ -21,7 +21,7 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-20 py-[22px]">
         <Link href="/" className="shrink-0">
           <Image
-            src="/logo.png"
+            src="/logo-transparent.png"
             alt="Pixora Studio"
             width={260}
             height={54}

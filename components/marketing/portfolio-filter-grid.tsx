@@ -43,7 +43,7 @@ export function PortfolioFilterGrid({ projects }: { projects: PortfolioCard[] })
         {visible.map((project) => (
           <article
             key={project.id}
-            className="group overflow-hidden rounded-3xl border border-border bg-card transition-colors hover:border-brand/60"
+            className="group overflow-hidden rounded-3xl bg-card transition-colors"
           >
             <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
               <Image
@@ -56,14 +56,14 @@ export function PortfolioFilterGrid({ projects }: { projects: PortfolioCard[] })
             </div>
             <div className="flex items-center justify-between gap-3 p-5">
               <div>
-                <h3 className="font-semibold">{project.title}</h3>
-                <p className="font-label text-xs uppercase tracking-widest text-muted-foreground">
+                <h3 className="text-lg font-bold">{project.title}</h3>
+                <p className="text-sm text-muted-foreground">
                   {project.clientName ? `${project.clientName} · ` : ""}
                   {PORTFOLIO_CATEGORY_LABELS[project.category]}
                 </p>
               </div>
-              <span className="grid size-10 shrink-0 place-items-center rounded-full border border-brand-soft/40 text-brand-soft">
-                &rarr;
+              <span className="grid size-10 shrink-0 place-items-center rounded-full border border-white/30 text-foreground transition-colors group-hover:border-brand group-hover:bg-brand group-hover:text-white">
+                &#8599;
               </span>
             </div>
           </article>

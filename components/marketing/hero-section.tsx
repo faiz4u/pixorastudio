@@ -10,7 +10,7 @@ function HeroHeading({ heading }: { heading: string }) {
     <h1 className="max-w-3xl font-heading text-4xl font-extrabold uppercase leading-[1.25] tracking-[0.05em] sm:text-5xl xl:text-6xl 2xl:text-7xl">
       {words.map((word, index) => (
         <span key={index}>
-          <span className={/^\d/.test(word) || word.includes("-") ? "text-primary" : undefined}>
+          <span className={/^\d/.test(word) || word.includes("-") ? "text-brand" : undefined}>
             {word}
           </span>{" "}
         </span>

@@ -1,12 +1,12 @@
 import { getCapabilities } from "@/lib/content/get-site-content";
 
 export async function CapabilitiesSection() {
-  const capabilities = await getCapabilities();
+  const capabilities = (await getCapabilities()).slice(0, 6);
 
   return (
     <section id="services" className="border-t border-border bg-background px-6 py-16 sm:px-10 sm:py-20 lg:px-20 lg:py-24">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-end">
+        <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-center">
           <div>
             <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">
               02 &mdash; Capabilities
@@ -25,14 +25,14 @@ export async function CapabilitiesSection() {
           {capabilities.map((capability, index) => (
             <div
               key={capability.id}
-              className="flex min-h-[220px] flex-col justify-between gap-6 bg-background p-8 transition-colors hover:bg-primary/10"
+              className="group flex min-h-[220px] flex-col gap-3 bg-background p-8 transition-colors hover:bg-brand"
             >
-              <span className="font-label text-xs tracking-widest text-brand">
+              <span className="text-base font-bold text-brand transition-colors group-hover:text-white">
                 {String(index + 1).padStart(2, "0")}
               </span>
               <div>
                 <h3 className="mb-3 text-lg font-bold">{capability.title}</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
+                <p className="text-sm leading-relaxed text-muted-foreground transition-colors group-hover:text-white/80">
                   {capability.description}
                 </p>
               </div>
