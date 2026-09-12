@@ -36,7 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
         {children}
-        <Toaster richColors position="top-center" />
+        <Toaster theme="dark" richColors position="top-center" />
       </body>
     </html>
   );
