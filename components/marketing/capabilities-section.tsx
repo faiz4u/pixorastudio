@@ -4,14 +4,14 @@ export async function CapabilitiesSection() {
   const capabilities = await getCapabilities();
 
   return (
-    <section id="services" className="border-t border-border bg-[#0b0a12] px-6 py-20 sm:py-28">
+    <section id="services" className="border-t border-border bg-background px-6 py-16 sm:px-10 sm:py-20 lg:px-20 lg:py-24">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-end">
           <div>
             <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">
               02 &mdash; Capabilities
             </p>
-            <h2 className="max-w-xl text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">
+            <h2 className="max-w-xl font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">
               Eight disciplines, one studio.
             </h2>
           </div>
@@ -25,7 +25,7 @@ export async function CapabilitiesSection() {
           {capabilities.map((capability, index) => (
             <div
               key={capability.id}
-              className="flex min-h-[220px] flex-col justify-between gap-6 bg-[#0a0910] p-8 transition-colors hover:bg-[#120f1e]"
+              className="flex min-h-[220px] flex-col justify-between gap-6 bg-background p-8 transition-colors hover:bg-primary/10"
             >
               <span className="font-label text-xs tracking-widest text-brand">
                 {String(index + 1).padStart(2, "0")}

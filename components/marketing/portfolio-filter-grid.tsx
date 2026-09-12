@@ -30,7 +30,7 @@ export function PortfolioFilterGrid({ projects }: { projects: PortfolioCard[] })
             className={cn(
               "rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-widest transition-colors",
               filter === item.value
-                ? "bg-primary text-primary-foreground"
+                ? "bg-brand text-white"
                 : "bg-secondary text-muted-foreground hover:text-foreground",
             )}
           >

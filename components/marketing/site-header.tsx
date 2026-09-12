@@ -18,33 +18,38 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-20 py-[22px]">
         <Link href="/" className="shrink-0">
           <Image
-            src="/brand/logo-wordmark.png"
+            src="/logo.png"
             alt="Pixora Studio"
-            width={140}
-            height={30}
-            className="h-[30px] w-[140px]"
+            width={260}
+            height={54}
+            className="h-[54px] w-[260px]"
             priority
           />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="font-label text-xs font-semibold uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
+        <div className="hidden items-center gap-10 md:flex">
+          <nav className="flex items-center gap-8">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="font-label text-xs font-semibold uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
 
-        <Button asChild size="sm" className="hidden rounded-full md:inline-flex">
-          <a href="#contact">Start a project</a>
-        </Button>
+          <Button
+            asChild
+            className="h-[46px] w-[180px] rounded-full bg-brand px-[14px] py-[7px] text-white hover:bg-brand-hover"
+          >
+            <a href="#contact">Start a project</a>
+          </Button>
+        </div>
 
         <button
           type="button"
@@ -71,7 +76,7 @@ export function SiteHeader() {
           <a
             href="#contact"
             onClick={() => setOpen(false)}
-            className="mt-2 rounded-full bg-primary px-4 py-2 text-center text-sm font-semibold text-primary-foreground"
+            className="mt-2 rounded-full bg-brand px-4 py-2 text-center text-sm font-semibold text-white hover:bg-brand-hover"
           >
             Start a project
           </a>

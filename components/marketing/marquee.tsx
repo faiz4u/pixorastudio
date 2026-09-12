@@ -9,7 +9,7 @@ export function Marquee() {
   const items = [...MARQUEE_ITEMS, ...MARQUEE_ITEMS];
 
   return (
-    <div className="overflow-hidden border-y border-border bg-[#0b0a12] py-5">
+    <div className="overflow-hidden border-y border-border bg-background py-5">
       <div className="flex w-max animate-marquee gap-6 whitespace-nowrap">
         {items.map((item, index) => (
           <span key={`${item}-${index}`} className="flex items-center gap-6">

@@ -6,7 +6,7 @@ export async function CtaBanner() {
 
   return (
     <section
-      className="relative overflow-hidden bg-primary px-6 py-20 text-primary-foreground"
+      className="relative overflow-hidden bg-primary px-6 py-16 text-primary-foreground sm:px-10 sm:py-20 lg:px-20 lg:py-24"
       style={{ backgroundImage: `url(${ctaImage.url})`, backgroundSize: "cover", backgroundPosition: "center" }}
     >
       <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
@@ -14,7 +14,7 @@ export async function CtaBanner() {
           <p className="mb-4 font-label text-xs font-semibold uppercase tracking-[0.3em] text-white/70">
             Have a challenge?
           </p>
-          <h2 className="max-w-xl text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">
+          <h2 className="max-w-xl font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">
             Ready to bring your ideas to life
           </h2>
           <p className="mt-5 max-w-lg text-sm leading-relaxed text-white/80">

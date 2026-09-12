@@ -82,7 +82,12 @@ export function ContactForm() {
         </p>
       )}
 
-      <Button type="submit" size="lg" disabled={isPending} className="rounded-full">
+      <Button
+        type="submit"
+        size="lg"
+        disabled={isPending}
+        className="rounded-full bg-brand text-white hover:bg-brand-hover"
+      >
         {isPending ? "Sending..." : "Send my brief →"}
       </Button>
       <p className="text-xs text-muted-foreground">

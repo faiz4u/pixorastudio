@@ -7,7 +7,7 @@ export async function ProcessSection() {
   return (
     <section
       id="process"
-      className="border-t border-border bg-gradient-to-b from-[#0b0a12] to-[#130e24] px-6 py-20 sm:py-28"
+      className="border-t border-border bg-background px-6 py-16 sm:px-10 sm:py-20 lg:px-20 lg:py-24"
     >
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-end">
@@ -15,7 +15,7 @@ export async function ProcessSection() {
             <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">
               03 &mdash; Process
             </p>
-            <h2 className="max-w-xl text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">
+            <h2 className="max-w-xl font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">
               How we turn problems into possibilities.
             </h2>
           </div>
@@ -38,7 +38,7 @@ export async function ProcessSection() {
         </div>
 
         <div className="mt-14 flex justify-center">
-          <Button asChild size="lg" className="rounded-full">
+          <Button asChild size="lg" className="rounded-full bg-brand text-white hover:bg-brand-hover">
             <a href="#contact">Contact Now</a>
           </Button>
         </div>

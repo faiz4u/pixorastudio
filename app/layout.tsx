@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Archivo, Montserrat } from "next/font/google";
+import { Archivo, Manrope, Montserrat } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import { env } from "@/lib/env";
 import "./globals.css";
 
-// Archivo (headings/body) and Montserrat (uppercase labels/eyebrow text) are
-// the two typefaces used throughout the brand's design source.
+// Manrope is the primary typeface (body copy, UI chrome); Archivo is the
+// secondary typeface reserved for display headings. Montserrat remains for
+// uppercase labels/eyebrow text.
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
 const archivo = Archivo({
   variable: "--font-archivo",
   subsets: ["latin"],
@@ -32,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`dark scroll-smooth ${archivo.variable} ${montserrat.variable} h-full antialiased`}
+      className={`dark scroll-smooth ${manrope.variable} ${archivo.variable} ${montserrat.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
         {children}
