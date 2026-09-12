@@ -47,7 +47,9 @@ export function SiteHeader() {
             asChild
             className="h-[46px] w-[180px] rounded-full bg-brand px-[14px] py-[7px] text-white hover:bg-brand-hover"
           >
-            <a href="#contact">Start a project</a>
+            <a href="#contact" className="inline-flex items-center justify-center gap-2">
+              Start a project <span aria-hidden>&rarr;</span>
+            </a>
           </Button>
         </div>
 
@@ -76,9 +78,9 @@ export function SiteHeader() {
           <a
             href="#contact"
             onClick={() => setOpen(false)}
-            className="mt-2 rounded-full bg-brand px-4 py-2 text-center text-sm font-semibold text-white hover:bg-brand-hover"
+            className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-brand px-4 py-2 text-center text-sm font-semibold text-white hover:bg-brand-hover"
           >
-            Start a project
+            Start a project <span aria-hidden>&rarr;</span>
           </a>
         </nav>
       )}

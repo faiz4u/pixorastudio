@@ -15,7 +15,7 @@ export async function CapabilitiesSection() {
               Eight disciplines, one studio.
             </h2>
           </div>
-          <p className="text-sm leading-relaxed text-muted-foreground">
+          <p className="text-xl leading-relaxed text-foreground">
             Good design isn&apos;t a single moment. It&apos;s a process of understanding, exploring,
             testing and refining. Hire us for one thing or the whole system.
           </p>

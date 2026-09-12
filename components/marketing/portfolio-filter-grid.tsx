@@ -39,7 +39,7 @@ export function PortfolioFilterGrid({ projects }: { projects: PortfolioCard[] })
         ))}
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-3">
         {visible.map((project) => (
           <article
             key={project.id}
