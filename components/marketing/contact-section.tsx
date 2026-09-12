@@ -14,31 +14,56 @@ export async function ContactSection() {
           <h2 className="max-w-md font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">
             Tell us what you&apos;re building.
           </h2>
-          <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-5 max-w-md text-xl leading-relaxed text-foreground">
             Share a few details and we&apos;ll come back within one working day with a point of
             view, a scope and a fixed quote. No decks, no sales calls you didn&apos;t ask for.
           </p>
 
-          <dl className="mt-10 flex flex-col gap-6">
-            <div>
-              <dt className="font-label text-xs uppercase tracking-widest text-muted-foreground">
-                WhatsApp
-              </dt>
-              <dd className="text-base font-semibold">{settings.contact_whatsapp}</dd>
+          <div className="mt-10 divide-y divide-border rounded-2xl border border-border">
+            <div className="flex items-center justify-between gap-4 p-7">
+              <div>
+                <p className="font-label text-xs uppercase tracking-widest text-muted-foreground">
+                  WhatsApp
+                </p>
+                <p className="mt-2 text-xl font-bold">{settings.contact_whatsapp}</p>
+              </div>
+              <a
+                href={`https://wa.me/${settings.contact_whatsapp.replace(/[^0-9]/g, "")}`}
+                aria-label="Message us on WhatsApp"
+                className="grid size-12 shrink-0 place-items-center rounded-full border border-white/30 text-foreground transition-colors hover:border-brand hover:bg-brand hover:text-white"
+              >
+                &#8599;
+              </a>
             </div>
-            <div>
-              <dt className="font-label text-xs uppercase tracking-widest text-muted-foreground">
-                Email
-              </dt>
-              <dd className="text-base font-semibold">{settings.contact_email}</dd>
+            <div className="flex items-center justify-between gap-4 p-7">
+              <div>
+                <p className="font-label text-xs uppercase tracking-widest text-muted-foreground">
+                  Email ID
+                </p>
+                <p className="mt-2 text-xl font-bold">{settings.contact_email}</p>
+              </div>
+              <a
+                href={`mailto:${settings.contact_email}`}
+                aria-label="Email us"
+                className="grid size-12 shrink-0 place-items-center rounded-full border border-white/30 text-foreground transition-colors hover:border-brand hover:bg-brand hover:text-white"
+              >
+                &#8599;
+              </a>
             </div>
-            <div>
-              <dt className="font-label text-xs uppercase tracking-widest text-muted-foreground">
-                Working hours
-              </dt>
-              <dd className="text-base font-semibold">{settings.contact_hours}</dd>
+            <div className="flex items-center justify-between gap-4 p-7">
+              <div>
+                <p className="font-label text-xs uppercase tracking-widest text-muted-foreground">
+                  Working hours
+                </p>
+                <p className="mt-2 text-xl font-bold">{settings.contact_hours}</p>
+              </div>
+              <p className="shrink-0 text-right text-sm text-foreground">
+                Working remotely
+                <br />
+                worldwide
+              </p>
             </div>
-          </dl>
+          </div>
         </div>
 
         <ContactForm />

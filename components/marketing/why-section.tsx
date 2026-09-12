@@ -15,32 +15,30 @@ export async function WhySection() {
           <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">
             Why Pixora
           </p>
-          <h2 className="max-w-md font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">
+          <h2 className="max-w-lg font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">
             {settings.why_heading}
           </h2>
-          <p className="mt-5 max-w-md text-base font-semibold text-foreground">
+          <p className="mt-5 max-w-lg text-2xl font-semibold text-foreground">
             {settings.why_subheading}
           </p>
-          <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-4 max-w-lg text-xl leading-relaxed text-foreground">
             {settings.why_body}
           </p>
 
-          <p className="mt-10 mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-            3 Principles
-          </p>
-          <ol className="flex flex-col gap-5">
+          <p className="mt-10 mb-5 text-xl font-bold text-foreground">3 Principles</p>
+          <ol className="flex flex-col gap-7">
             {WHY_PRINCIPLES.map((principle, index) => (
               <li key={principle.title}>
-                <p className="font-label text-xs font-semibold uppercase tracking-widest text-brand">
+                <p className="text-xl font-bold text-brand">
                   {String(index + 1).padStart(2, "0")} &mdash; {principle.title}
                 </p>
-                <p className="mt-1 text-sm text-muted-foreground">{principle.body}</p>
+                <p className="mt-1 text-lg text-foreground">{principle.body}</p>
               </li>
             ))}
           </ol>
         </div>
 
-        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border">
+        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
           <Image
             src={officeImage.url}
             alt={officeImage.alt}

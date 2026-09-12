@@ -14,20 +14,21 @@ export async function CtaBanner() {
           <p className="mb-4 font-label text-xs font-semibold uppercase tracking-[0.3em] text-white/70">
             Have a challenge?
           </p>
-          <h2 className="max-w-xl font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">
+          <h2 className="max-w-2xl font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">
             Ready to bring your ideas to life
           </h2>
-          <p className="mt-5 max-w-lg text-sm leading-relaxed text-white/80">
+          <p className="mt-5 max-w-lg text-base leading-relaxed text-white/90">
             Whether you&apos;re building a new brand, redesigning a website or solving a complex
             digital problem, we&apos;d love to understand what you&apos;re working on.
           </p>
         </div>
         <Button
           asChild
-          size="lg"
-          className="shrink-0 rounded-full bg-white text-primary hover:bg-white/90"
+          className="h-auto shrink-0 rounded-full bg-white px-8 py-4 text-base font-bold text-primary hover:bg-white/90"
         >
-          <a href="#contact">Start a Project &rarr;</a>
+          <a href="#contact" className="inline-flex items-center gap-2">
+            Start a Project <span aria-hidden>&rarr;</span>
+          </a>
         </Button>
       </div>
     </section>

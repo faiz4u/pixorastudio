@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Phone, Mail, ArrowUpRight } from "lucide-react";
 import { getSiteSettings } from "@/lib/content/get-site-content";
 
 const STUDIO_LINKS = [
@@ -17,11 +18,11 @@ export async function SiteFooter() {
       <div className="mx-auto grid max-w-7xl gap-10 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <Image
-            src="/brand/logo-wordmark.png"
+            src="/logo-transparent.png"
             alt="Pixora Studio"
-            width={150}
-            height={32}
-            className="h-[32px] w-[150px]"
+            width={193}
+            height={40}
+            className="h-[40px] w-[193px]"
           />
           <p className="mt-4 max-w-xs text-sm text-muted-foreground">{settings.footer_tagline}</p>
         </div>
@@ -49,25 +50,25 @@ export async function SiteFooter() {
             <li>
               <a
                 href={settings.social_instagram || "#"}
-                className="text-muted-foreground hover:text-foreground"
+                className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
               >
-                Instagram
+                Instagram <ArrowUpRight className="size-3.5" />
               </a>
             </li>
             <li>
               <a
                 href={settings.social_linkedin || "#"}
-                className="text-muted-foreground hover:text-foreground"
+                className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
               >
-                LinkedIn
+                LinkedIn <ArrowUpRight className="size-3.5" />
               </a>
             </li>
             <li>
               <a
                 href={`https://wa.me/${settings.contact_whatsapp.replace(/[^0-9]/g, "")}`}
-                className="text-muted-foreground hover:text-foreground"
+                className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
               >
-                WhatsApp
+                WhatsApp <ArrowUpRight className="size-3.5" />
               </a>
             </li>
           </ul>
@@ -77,9 +78,13 @@ export async function SiteFooter() {
           <p className="mb-4 font-label text-xs font-semibold uppercase tracking-widest text-muted-foreground">
             Get in Touch
           </p>
-          <ul className="flex flex-col gap-2 text-sm">
-            <li className="text-muted-foreground">{settings.contact_whatsapp}</li>
-            <li className="text-muted-foreground">{settings.contact_email}</li>
+          <ul className="flex flex-col gap-3 text-sm">
+            <li className="flex items-center gap-2 text-muted-foreground">
+              <Phone className="size-4 shrink-0" /> {settings.contact_whatsapp}
+            </li>
+            <li className="flex items-center gap-2 text-muted-foreground">
+              <Mail className="size-4 shrink-0" /> {settings.contact_email}
+            </li>
           </ul>
         </div>
       </div>
