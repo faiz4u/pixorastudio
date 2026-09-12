@@ -27,7 +27,24 @@ export async function ProcessSection() {
         </div>
 
         <div className="relative mt-16">
-          <div className="pointer-events-none absolute inset-x-[12.5%] top-0 hidden h-16 lg:block">
+          {/* Each segment spans exactly circle-center to circle-center for a 4-col grid
+              with gap-10: width = 25% + gap/4, offset by k*width + (colWidth/2). */}
+          <div
+            className="pointer-events-none absolute top-0 hidden h-16 w-[calc(25%+0.625rem)] lg:block"
+            style={{ left: "calc(12.5% - 0.9375rem)" }}
+          >
+            <Image src="/CTA-line.png" alt="" fill className="object-fill" />
+          </div>
+          <div
+            className="pointer-events-none absolute top-0 hidden h-16 w-[calc(25%+0.625rem)] lg:block"
+            style={{ left: "calc(37.5% - 0.3125rem)" }}
+          >
+            <Image src="/CTA-line.png" alt="" fill className="object-fill" />
+          </div>
+          <div
+            className="pointer-events-none absolute top-0 hidden h-16 w-[calc(25%+0.625rem)] lg:block"
+            style={{ left: "calc(62.5% + 0.3125rem)" }}
+          >
             <Image src="/CTA-line.png" alt="" fill className="object-fill" />
           </div>
 
