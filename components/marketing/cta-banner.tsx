@@ -6,7 +6,7 @@ export async function CtaBanner() {
 
   return (
     <section
-      className="relative overflow-hidden bg-primary px-6 py-16 text-primary-foreground sm:px-10 sm:py-20 lg:px-20 lg:py-24"
+      className="relative overflow-hidden bg-primary px-6 py-12 text-primary-foreground sm:px-10 sm:py-16 lg:px-20 lg:py-16"
       style={{ backgroundImage: `url(${ctaImage.url})`, backgroundSize: "cover", backgroundPosition: "center" }}
     >
       <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">

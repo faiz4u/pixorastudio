@@ -14,8 +14,8 @@ export async function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border px-6 py-16 sm:px-10 lg:px-20">
-      <div className="mx-auto grid max-w-7xl gap-10 sm:grid-cols-2 lg:grid-cols-4">
+    <footer className="border-t border-border px-6 pt-16 pb-8 sm:px-10 lg:px-20">
+      <div className="mx-auto grid max-w-7xl gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]">
         <div>
           <Image
             src="/logo-transparent.png"

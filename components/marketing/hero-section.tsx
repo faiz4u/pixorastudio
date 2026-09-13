@@ -50,9 +50,9 @@ export async function HeroSection() {
             </a>
             <a
               href={settings.hero_cta_secondary_href}
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 text-sm font-semibold transition-colors hover:border-brand"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-white px-8 py-4 text-sm font-semibold transition-colors hover:border-brand"
             >
-              {settings.hero_cta_secondary_label}
+              {settings.hero_cta_secondary_label} <span aria-hidden> &#8599;</span>
             </a>
           </div>
         </div>

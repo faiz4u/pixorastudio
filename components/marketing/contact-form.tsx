@@ -90,7 +90,7 @@ export function ContactForm() {
       <Button
         type="submit"
         disabled={isPending}
-        className="h-auto w-full rounded-full bg-brand px-8 py-4 text-base font-bold text-white hover:bg-brand-hover"
+        className="mt-auto h-auto w-full rounded-full bg-brand px-8 py-4 text-base font-bold text-white hover:bg-brand-hover"
       >
         <span className="inline-flex items-center gap-2">
           {isPending ? "Sending..." : "Send my brief"} <span aria-hidden>&rarr;</span>

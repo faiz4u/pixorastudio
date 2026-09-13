@@ -20,14 +20,14 @@ export async function PortfolioSection() {
         </div>
 
         <div className="mt-16 flex flex-col items-center gap-5 text-center">
-          <p className="text-sm text-muted-foreground">
+          <p className="font-semibold text-foreground text-md">
             Like what you see? Let&apos;s build something together.
           </p>
           <Button
             asChild
             className="h-auto rounded-full bg-brand px-8 py-4 text-sm font-bold text-white hover:bg-brand-hover"
           >
-            <a href="#contact">Get in Touch &rarr;</a>
+            <a href="#contact">Get in Touch &nbsp; &rarr;</a>
           </Button>
         </div>
       </div>

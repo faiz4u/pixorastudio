@@ -8,9 +8,14 @@ export async function ProcessSection() {
   return (
     <section
       id="process"
-      className="border-t border-border bg-background px-6 py-16 sm:px-10 sm:py-20 lg:px-20 lg:py-24"
+      className="relative overflow-hidden border-t border-border bg-background px-6 py-16 sm:px-10 sm:py-20 lg:px-20 lg:py-24"
     >
-      <div className="mx-auto max-w-7xl">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -bottom-56 -right-56 h-[42rem] w-[42rem] rounded-full bg-[radial-gradient(circle,_#744bdb_0%,_transparent_70%)] opacity-25"
+      />
+
+      <div className="relative mx-auto max-w-7xl">
         <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-center">
           <div>
             <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">

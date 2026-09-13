@@ -21,11 +21,11 @@ export async function ContactSection() {
 
           <div className="mt-10 divide-y divide-border rounded-2xl border border-border">
             <div className="flex items-center justify-between gap-4 p-7">
-              <div>
+              <div className="min-w-0">
                 <p className="font-label text-xs uppercase tracking-widest text-muted-foreground">
                   WhatsApp
                 </p>
-                <p className="mt-2 text-xl font-bold">{settings.contact_whatsapp}</p>
+                <p className="mt-2 break-words text-xl font-bold">{settings.contact_whatsapp}</p>
               </div>
               <a
                 href={`https://wa.me/${settings.contact_whatsapp.replace(/[^0-9]/g, "")}`}
@@ -36,11 +36,11 @@ export async function ContactSection() {
               </a>
             </div>
             <div className="flex items-center justify-between gap-4 p-7">
-              <div>
+              <div className="min-w-0">
                 <p className="font-label text-xs uppercase tracking-widest text-muted-foreground">
                   Email ID
                 </p>
-                <p className="mt-2 text-xl font-bold">{settings.contact_email}</p>
+                <p className="mt-2 break-all text-xl font-bold">{settings.contact_email}</p>
               </div>
               <a
                 href={`mailto:${settings.contact_email}`}
@@ -51,11 +51,11 @@ export async function ContactSection() {
               </a>
             </div>
             <div className="flex items-center justify-between gap-4 p-7">
-              <div>
+              <div className="min-w-0">
                 <p className="font-label text-xs uppercase tracking-widest text-muted-foreground">
                   Working hours
                 </p>
-                <p className="mt-2 text-xl font-bold">{settings.contact_hours}</p>
+                <p className="mt-2 break-words text-xl font-bold">{settings.contact_hours}</p>
               </div>
               <p className="shrink-0 text-right text-sm text-foreground">
                 Working remotely
