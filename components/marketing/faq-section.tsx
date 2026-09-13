@@ -25,13 +25,17 @@ export async function FaqSection() {
           </p>
         </div>
 
-        <Accordion type="single" collapsible className="w-full">
+        <Accordion
+          type="single"
+          collapsible
+          className="w-full rounded-2xl border border-border px-6 sm:px-10"
+        >
           {faqs.map((faq) => (
             <AccordionItem key={faq.id} value={faq.id}>
-              <AccordionTrigger className="text-left text-base font-semibold">
+              <AccordionTrigger className="py-7 text-left text-lg font-semibold sm:py-8 sm:text-2xl **:data-[slot=accordion-trigger-icon]:size-6">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
+              <AccordionContent className="pb-7 text-sm leading-relaxed text-muted-foreground sm:pb-8 sm:text-base">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>

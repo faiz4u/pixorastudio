@@ -9,8 +9,8 @@ export async function WhySection() {
   ]);
 
   return (
-    <section className="px-6 py-16 sm:px-10 sm:py-20 lg:px-20 lg:py-24">
-      <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
+    <section className="overflow-x-hidden px-6 py-16 sm:px-10 sm:py-20 lg:px-20 lg:py-24">
+      <div className="mx-auto grid max-w-7xl items-center gap-5 lg:grid-cols-2">
         <div>
           <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">
             Why Pixora
@@ -38,13 +38,13 @@ export async function WhySection() {
           </ol>
         </div>
 
-        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
+        <div className="relative aspect-[4/3] w-full overflow-hidden lg:w-[calc(100%+max(80px,50vw-640px))]">
           <Image
             src={officeImage.url}
             alt={officeImage.alt}
             fill
-            sizes="(max-width: 1024px) 90vw, 45vw"
-            className="object-cover"
+            sizes="(max-width: 1024px) 90vw, 50vw"
+            className="object-cover object-center"
           />
         </div>
       </div>

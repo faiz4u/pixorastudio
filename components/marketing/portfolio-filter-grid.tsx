@@ -26,6 +26,7 @@ export function PortfolioFilterGrid({ projects }: { projects: PortfolioCard[] })
           <button
             key={item.value}
             type="button"
+            suppressHydrationWarning
             onClick={() => setFilter(item.value)}
             className={cn(
               "rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-widest transition-colors",
@@ -51,10 +52,7 @@ export function PortfolioFilterGrid({ projects }: { projects: PortfolioCard[] })
                 alt={project.title}
                 fill
                 sizes={index === 0 ? "(max-width: 640px) 100vw, 50vw" : "(max-width: 640px) 100vw, 25vw"}
-                className={cn(
-                  "object-center transition-transform duration-500 group-hover:scale-105",
-                  index === 0 ? "object-contain" : "object-cover",
-                )}
+                className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
               />
             </div>
             <div className="flex items-center justify-between gap-3 p-5">
