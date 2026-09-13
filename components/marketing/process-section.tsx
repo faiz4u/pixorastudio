@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getProcessSteps } from "@/lib/content/get-site-content";
 import { Button } from "@/components/ui/button";
+import { Reveal } from "@/components/marketing/reveal";
 
 export async function ProcessSection() {
   const steps = await getProcessSteps();
@@ -17,18 +18,22 @@ export async function ProcessSection() {
 
       <div className="relative mx-auto max-w-7xl">
         <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-center">
-          <div>
-            <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">
-              03 &mdash; Process
+          <Reveal direction="left">
+            <div>
+              <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">
+                03 &mdash; Process
+              </p>
+              <h2 className="max-w-xl font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">
+                How we turn problems into possibilities.
+              </h2>
+            </div>
+          </Reveal>
+          <Reveal direction="right" delay={100}>
+            <p className="text-xl leading-relaxed text-foreground">
+              Every project is different. Our approach stays focused: understand deeply, think
+              strategically, and design with purpose.
             </p>
-            <h2 className="max-w-xl font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">
-              How we turn problems into possibilities.
-            </h2>
-          </div>
-          <p className="text-xl leading-relaxed text-foreground">
-            Every project is different. Our approach stays focused: understand deeply, think
-            strategically, and design with purpose.
-          </p>
+          </Reveal>
         </div>
 
         <div className="relative mt-16">
@@ -55,29 +60,31 @@ export async function ProcessSection() {
 
           <div className="relative grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, index) => (
-              <div key={step.id} className="flex flex-col items-center text-center">
-                <div className="relative z-10 mb-6 grid size-14 place-items-center rounded-full bg-primary text-base font-bold text-white">
-                  {String(index + 1).padStart(2, "0")}
+              <Reveal key={step.id} delay={index * 120}>
+                <div className="flex flex-col items-center text-center">
+                  <div className="relative z-10 mb-6 grid size-14 place-items-center rounded-full bg-primary text-base font-bold text-white transition-transform duration-300 hover:scale-110">
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
+                  <h3 className="mb-3 text-lg font-bold uppercase tracking-tight">{step.title}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {step.description}
+                  </p>
                 </div>
-                <h3 className="mb-3 text-lg font-bold uppercase tracking-tight">{step.title}</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {step.description}
-                </p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
 
-        <div className="mt-14 flex justify-center">
+        <Reveal className="mt-14 flex justify-center">
           <Button
             asChild
-            className="h-auto rounded-full bg-brand px-8 py-4 text-sm font-bold text-white hover:bg-brand-hover"
+            className="h-auto rounded-full bg-brand px-8 py-4 text-sm font-bold text-white transition-transform duration-300 hover:scale-[1.04] hover:bg-brand-hover active:scale-[0.97]"
           >
             <a href="#contact" className="inline-flex items-center gap-2">
               Contact Now <span aria-hidden>&rarr;</span>
             </a>
           </Button>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

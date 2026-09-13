@@ -19,7 +19,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 px-6 backdrop-blur sm:px-10 lg:px-20">
       <div className="mx-auto flex max-w-7xl items-center justify-between py-[22px]">
-        <Link href="/" className="shrink-0">
+        <Link href="/" className="shrink-0 transition-transform duration-300 hover:scale-[1.03]">
           <Image
             src="/logo-transparent.png"
             alt="Pixora Studio"
@@ -36,7 +36,7 @@ export function SiteHeader() {
               <a
                 key={link.href}
                 href={link.href}
-                className="font-label text-xs font-semibold uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground"
+                className="link-underline font-label text-xs font-semibold uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground"
               >
                 {link.label}
               </a>
@@ -45,7 +45,7 @@ export function SiteHeader() {
 
           <Button
             asChild
-            className="h-[46px] w-[180px] rounded-full bg-brand px-[14px] py-[7px] text-white hover:bg-brand-hover"
+            className="h-[46px] w-[180px] rounded-full bg-brand px-[14px] py-[7px] text-white transition-transform duration-300 hover:scale-[1.05] hover:bg-brand-hover active:scale-[0.97]"
           >
             <a href="#contact" className="inline-flex items-center justify-center gap-2">
               Start a project <span aria-hidden>&rarr;</span>
@@ -64,7 +64,7 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <nav className="flex flex-col gap-1 border-t border-border px-6 py-4 md:hidden">
+        <nav className="animate-in fade-in slide-in-from-top-2 flex flex-col gap-1 border-t border-border px-6 py-4 duration-300 md:hidden">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}

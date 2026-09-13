@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getSiteSettings, getSiteImage } from "@/lib/content/get-site-content";
 import { WHY_PRINCIPLES } from "@/lib/content/site-content";
+import { Reveal } from "@/components/marketing/reveal";
 
 export async function WhySection() {
   const [settings, officeImage] = await Promise.all([
@@ -16,42 +17,46 @@ export async function WhySection() {
       />
 
       <div className="relative mx-auto grid max-w-7xl items-stretch gap-5 lg:grid-cols-2">
-        <div>
-          <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">
-            Why Pixora
-          </p>
-          <h2 className="max-w-lg font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">
-            {settings.why_heading}
-          </h2>
-          <p className="mt-5 max-w-lg text-2xl font-semibold text-foreground">
-            {settings.why_subheading}
-          </p>
-          <p className="mt-4 max-w-lg text-xl leading-relaxed text-foreground">
-            {settings.why_body}
-          </p>
+        <Reveal direction="left">
+          <div>
+            <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">
+              Why Pixora
+            </p>
+            <h2 className="max-w-lg font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">
+              {settings.why_heading}
+            </h2>
+            <p className="mt-5 max-w-lg text-2xl font-semibold text-foreground">
+              {settings.why_subheading}
+            </p>
+            <p className="mt-4 max-w-lg text-xl leading-relaxed text-foreground">
+              {settings.why_body}
+            </p>
 
-          <p className="mt-10 mb-5 text-xl font-bold text-foreground">3 Principles</p>
-          <ol className="flex flex-col gap-7">
-            {WHY_PRINCIPLES.map((principle, index) => (
-              <li key={principle.title}>
-                <p className="text-xl font-bold text-brand">
-                  {String(index + 1).padStart(2, "0")} &mdash; {principle.title}
-                </p>
-                <p className="mt-1 text-lg text-foreground">{principle.body}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
+            <p className="mt-10 mb-5 text-xl font-bold text-foreground">3 Principles</p>
+            <ol className="flex flex-col gap-7">
+              {WHY_PRINCIPLES.map((principle, index) => (
+                <li key={principle.title}>
+                  <p className="text-xl font-bold text-brand">
+                    {String(index + 1).padStart(2, "0")} &mdash; {principle.title}
+                  </p>
+                  <p className="mt-1 text-lg text-foreground">{principle.body}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </Reveal>
 
-        <div className="relative aspect-[4/3] w-full overflow-hidden lg:aspect-auto lg:h-full lg:w-[calc(100%+max(80px,50vw-640px))]">
-          <Image
-            src={officeImage.url}
-            alt={officeImage.alt}
-            fill
-            sizes="(max-width: 1024px) 90vw, 50vw"
-            className="object-cover object-center"
-          />
-        </div>
+        <Reveal direction="right" delay={150} className="lg:h-full">
+          <div className="relative aspect-[4/3] w-full overflow-hidden lg:aspect-auto lg:h-full lg:w-[calc(100%+max(80px,50vw-640px))]">
+            <Image
+              src={officeImage.url}
+              alt={officeImage.alt}
+              fill
+              sizes="(max-width: 1024px) 90vw, 50vw"
+              className="object-cover object-center"
+            />
+          </div>
+        </Reveal>
       </div>
     </section>
   );

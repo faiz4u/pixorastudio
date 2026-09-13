@@ -12,7 +12,7 @@ const fieldLabel = "font-label text-xs font-semibold uppercase tracking-widest t
 const underlineInput =
   "h-auto rounded-none border-0 border-b border-border bg-transparent px-0 pb-3 text-lg font-semibold focus-visible:border-brand focus-visible:ring-0 dark:bg-transparent";
 const pill =
-  "flex cursor-pointer items-center gap-2 rounded-full border border-brand/60 px-4 py-2 text-sm font-semibold transition-colors has-[:checked]:bg-brand has-[:checked]:text-white has-[:focus-visible]:ring-3 has-[:focus-visible]:ring-ring/50";
+  "flex cursor-pointer items-center gap-2 rounded-full border border-brand/60 px-4 py-2 text-sm font-semibold transition-all duration-200 hover:scale-105 has-[:checked]:scale-105 has-[:checked]:bg-brand has-[:checked]:text-white has-[:focus-visible]:ring-3 has-[:focus-visible]:ring-ring/50";
 
 const initialState: LeadActionState = { status: "idle" };
 
@@ -20,7 +20,10 @@ export function ContactForm() {
   const [state, formAction, isPending] = useActionState(submitLead, initialState);
 
   return (
-    <form action={formAction} className="flex flex-col gap-7 rounded-3xl border border-border p-8">
+    <form
+      action={formAction}
+      className="flex h-full flex-col gap-7 rounded-3xl border border-border p-8"
+    >
       {/* Honeypot: hidden from real visitors, so any bot that fills it out gets rejected server-side. */}
       <input
         type="text"
@@ -90,7 +93,7 @@ export function ContactForm() {
       <Button
         type="submit"
         disabled={isPending}
-        className="mt-auto h-auto w-full rounded-full bg-brand px-8 py-4 text-base font-bold text-white hover:bg-brand-hover"
+        className="mt-auto h-auto w-full rounded-full bg-brand px-8 py-4 text-base font-bold text-white transition-transform duration-300 hover:scale-[1.02] hover:bg-brand-hover active:scale-[0.98]"
       >
         <span className="inline-flex items-center gap-2">
           {isPending ? "Sending..." : "Send my brief"} <span aria-hidden>&rarr;</span>
