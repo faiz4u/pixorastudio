@@ -5,6 +5,7 @@ import { Reveal } from "@/components/marketing/reveal";
 
 export async function PortfolioSection() {
   const projects = await getPortfolio();
+  
 
   return (
     <section id="work" className="px-6 py-16 sm:px-10 sm:py-20 lg:px-20 lg:py-24">
