@@ -1,9 +1,11 @@
 "use server";
 
 import { Resend } from "resend";
+import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { env, isLeadEmailConfigured } from "@/lib/env";
 import { leadSchema } from "@/lib/validation/lead";
+import type { LeadStatus } from "@/types/database";
 
 export type LeadActionState = {
   status: "idle" | "success" | "error";
@@ -74,4 +76,18 @@ async function notifyAdminOfLead(lead: {
     // The lead is already saved in the database; a failed email alert
     // shouldn't fail the user-facing submission.
   }
+}
+
+export async function updateLeadStatus(id: string, status: LeadStatus) {
+  const supabase = await createClient();
+  const { error } = await supabase.from("leads").update({ status }).eq("id", id);
+  if (error) throw new Error(error.message);
+  revalidatePath("/admin/leads");
+}
+
+export async function deleteLead(id: string) {
+  const supabase = await createClient();
+  const { error } = await supabase.from("leads").delete().eq("id", id);
+  if (error) throw new Error(error.message);
+  revalidatePath("/admin/leads");
 }
