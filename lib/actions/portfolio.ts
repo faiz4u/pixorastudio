@@ -20,6 +20,7 @@ export async function savePortfolioProject(
     clientName: formData.get("clientName") ?? "",
     description: formData.get("description") ?? "",
     tags: formData.get("tags") ?? "",
+    projectUrl: formData.get("projectUrl") ?? "",
     displayOrder: formData.get("displayOrder") || 0,
   });
 
@@ -60,6 +61,7 @@ export async function savePortfolioProject(
     category: parsed.data.category,
     client_name: parsed.data.clientName || null,
     description: parsed.data.description || null,
+    project_url: parsed.data.projectUrl || null,
     tags,
     is_featured: isFeatured,
     published,

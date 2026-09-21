@@ -21,6 +21,7 @@ export type Database = {
           client_name: string | null;
           description: string | null;
           cover_image_path: string | null;
+          project_url: string | null;
           gallery: string[];
           tags: string[];
           is_featured: boolean;
@@ -37,6 +38,7 @@ export type Database = {
           client_name?: string | null;
           description?: string | null;
           cover_image_path?: string | null;
+          project_url?: string | null;
           gallery?: string[];
           tags?: string[];
           is_featured?: boolean;

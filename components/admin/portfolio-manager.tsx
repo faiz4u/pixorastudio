@@ -152,6 +152,21 @@ function PortfolioFormDialog({
           </div>
 
           <div className="flex flex-col gap-2">
+            <Label htmlFor="projectUrl">Project URL</Label>
+            <Input
+              id="projectUrl"
+              name="projectUrl"
+              type="text"
+              inputMode="url"
+              placeholder="https://example.com"
+              defaultValue={project?.project_url ?? ""}
+            />
+            <p className="text-xs text-muted-foreground">
+              Optional. The portfolio card links to this page when set.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-2">
             <Label htmlFor="tags">Tags (comma separated)</Label>
             <Input id="tags" name="tags" defaultValue={project?.tags.join(", ") ?? ""} />
           </div>

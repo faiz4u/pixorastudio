@@ -87,6 +87,7 @@ export type PortfolioCard = {
   category: PortfolioCategory;
   clientName: string | null;
   description: string | null;
+  projectUrl: string | null;
   coverImageUrl: string;
 };
 
@@ -106,8 +107,9 @@ export async function getPortfolio(): Promise<PortfolioCard[]> {
       category: project.category,
       clientName: project.client_name,
       description: project.description,
+      projectUrl: project.project_url ?? null,
       coverImageUrl: project.cover_image_path
-        ? getPublicStorageUrl("portfolio", project.cover_image_path)
+        ? getPublicStorageUrl("portfolio", project.cover_image_path, project.updated_at)
         : "/seed/work-1.png",
     }));
   }
@@ -119,6 +121,7 @@ export async function getPortfolio(): Promise<PortfolioCard[]> {
     category: project.category,
     clientName: project.clientName,
     description: project.description,
+    projectUrl: null,
     coverImageUrl: project.localCoverImage,
   }));
 }
@@ -128,7 +131,7 @@ export async function getSiteImage(slot: keyof typeof SITE_IMAGES_SEED) {
   const { data } = await supabase.from("site_images").select("*").eq("slot", slot).maybeSingle();
 
   if (data) {
-    return { url: getPublicStorageUrl("site-images", data.storage_path), alt: data.alt_text };
+    return { url: getPublicStorageUrl("site-images", data.storage_path, data.updated_at), alt: data.alt_text };
   }
 
   const fallback = SITE_IMAGES_SEED[slot];

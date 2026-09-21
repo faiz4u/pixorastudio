@@ -42,8 +42,8 @@ export function PortfolioFilterGrid({ projects }: { projects: PortfolioCard[] })
       </div>
 
       <div className="grid gap-6 sm:grid-cols-[2fr_1fr_1fr]">
-        {visible.map((project, index) => (
-          <Reveal key={project.id} delay={index * 90} className="h-full">
+        {visible.map((project, index) => {
+          const card = (
             <article className="group flex h-full flex-col overflow-hidden rounded-3xl bg-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-brand/20">
               <div className="relative h-[200px] w-full overflow-hidden bg-muted sm:h-[240px]">
                 <Image
@@ -67,8 +67,26 @@ export function PortfolioFilterGrid({ projects }: { projects: PortfolioCard[] })
                 </span>
               </div>
             </article>
-          </Reveal>
-        ))}
+          );
+
+          return (
+            <Reveal key={project.id} delay={index * 90} className="h-full">
+              {project.projectUrl ? (
+                <a
+                  href={project.projectUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${project.title} (opens in a new tab)`}
+                  className="block h-full rounded-3xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+                >
+                  {card}
+                </a>
+              ) : (
+                card
+              )}
+            </Reveal>
+          );
+        })}
 
         {visible.length === 0 && (
           <p className="col-span-full py-12 text-center text-sm text-muted-foreground">

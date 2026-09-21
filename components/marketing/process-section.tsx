@@ -36,32 +36,29 @@ export async function ProcessSection() {
         </div>
 
         <div className="relative mt-16">
-          {/* Each segment spans exactly circle-center to circle-center for a 4-col grid
-              with gap-10: width = 25% + gap/4, offset by k*width + (colWidth/2). */}
+          {/* Desktop only: one strip with the 01-04 circles and the dashed path drawn in.
+              Its circle centres sit at 5.7/35.2/64.7/94.3% of its width (29.5% apart), so
+              sizing it to (container + gap) / 4 / 0.2951 lands them on the 4-col grid
+              centres below (col pitch = (container + gap) / 4, gap-10 = 2.5rem). */}
           <div
-            className="pointer-events-none absolute top-0 hidden h-16 w-[calc(25%+0.625rem)] lg:block"
-            style={{ left: "calc(12.5% - 0.9375rem)" }}
+            aria-hidden
+            className="pointer-events-none relative mx-auto hidden aspect-[4784/560] lg:block"
+            style={{ width: "calc((100% + 2.5rem) / 4 / 0.2951)" }}
           >
-            <Image src="/CTA-line.png" alt="" fill className="object-fill" />
-          </div>
-          <div
-            className="pointer-events-none absolute top-0 hidden h-16 w-[calc(25%+0.625rem)] lg:block"
-            style={{ left: "calc(37.5% - 0.3125rem)" }}
-          >
-            <Image src="/CTA-line.png" alt="" fill className="object-fill" />
-          </div>
-          <div
-            className="pointer-events-none absolute top-0 hidden h-16 w-[calc(25%+0.625rem)] lg:block"
-            style={{ left: "calc(62.5% + 0.3125rem)" }}
-          >
-            <Image src="/CTA-line.png" alt="" fill className="object-fill" />
+            <Image
+              src="/CTA-Line-image.png"
+              alt=""
+              fill
+              sizes="(min-width: 1280px) 1120px, 90vw"
+              className="object-fill"
+            />
           </div>
 
-          <div className="relative grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="relative grid gap-10 sm:grid-cols-2 lg:-mt-[calc((100%+2.5rem)*0.029-1.5rem)] lg:grid-cols-4">
             {steps.map((step, index) => (
               <Reveal key={step.id} delay={index * 120}>
                 <div className="flex flex-col items-center text-center">
-                  <div className="relative z-10 mb-6 grid size-14 place-items-center rounded-full bg-primary text-base font-bold text-white transition-transform duration-300 hover:scale-110">
+                  <div className="relative z-10 mb-6 grid size-14 place-items-center rounded-full bg-primary text-base font-bold text-white transition-transform duration-300 hover:scale-110 lg:hidden">
                     {String(index + 1).padStart(2, "0")}
                   </div>
                   <h3 className="mb-3 text-lg font-bold uppercase tracking-tight">{step.title}</h3>
