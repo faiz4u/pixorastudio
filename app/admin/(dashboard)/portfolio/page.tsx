@@ -12,7 +12,7 @@ export default async function AdminPortfolioPage() {
   const projects: AdminPortfolioProject[] = (data ?? []).map((project) => ({
     ...project,
     coverImageUrl: project.cover_image_path
-      ? getPublicStorageUrl("portfolio", project.cover_image_path)
+      ? getPublicStorageUrl("portfolio", project.cover_image_path, project.updated_at)
       : null,
   }));
 
