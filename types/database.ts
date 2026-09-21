@@ -85,6 +85,13 @@ export type Database = {
           why_heading: string;
           why_subheading: string;
           why_body: string;
+          work_heading: string;
+          capabilities_heading: string;
+          capabilities_subheading: string;
+          process_heading: string;
+          process_subheading: string;
+          contact_heading: string;
+          contact_subheading: string;
           contact_whatsapp: string;
           contact_email: string;
           contact_hours: string;
@@ -135,6 +142,26 @@ export type Database = {
           updated_at?: string;
         };
         Update: Partial<Database["public"]["Tables"]["process_steps"]["Insert"]>;
+        Relationships: [];
+      };
+      why_principles: {
+        Row: {
+          id: string;
+          title: string;
+          description: string;
+          display_order: number;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          title: string;
+          description: string;
+          display_order?: number;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: Partial<Database["public"]["Tables"]["why_principles"]["Insert"]>;
         Relationships: [];
       };
       faq_items: {

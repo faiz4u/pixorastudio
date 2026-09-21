@@ -2,6 +2,7 @@ import { getSiteImage } from "@/lib/content/get-site-content";
 import { MediaManager, type SiteImageSlot } from "@/components/admin/media-manager";
 
 const SLOT_LABELS: Record<SiteImageSlot["slot"], string> = {
+  logo: "Website logo",
   hero: "Hero image",
   about_office: "About / office image",
   cta_banner: "CTA banner image",
@@ -19,7 +20,9 @@ export default async function AdminMediaPage() {
     <div className="flex flex-col gap-6">
       <div>
         <h1 className="text-2xl font-semibold">Media</h1>
-        <p className="text-sm text-muted-foreground">Replace the hero, about and CTA images.</p>
+        <p className="text-sm text-muted-foreground">
+          Replace the website logo and the hero, about and CTA images.
+        </p>
       </div>
 
       <MediaManager slots={slots} />

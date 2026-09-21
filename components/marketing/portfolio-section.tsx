@@ -1,11 +1,10 @@
-import { getPortfolio } from "@/lib/content/get-site-content";
+import { getPortfolio, getSiteSettings } from "@/lib/content/get-site-content";
 import { PortfolioFilterGrid } from "@/components/marketing/portfolio-filter-grid";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/marketing/reveal";
 
 export async function PortfolioSection() {
-  const projects = await getPortfolio();
-  
+  const [projects, settings] = await Promise.all([getPortfolio(), getSiteSettings()]);
 
   return (
     <section id="work" className="px-6 py-16 sm:px-10 sm:py-20 lg:px-20 lg:py-24">
@@ -15,7 +14,7 @@ export async function PortfolioSection() {
             01 &mdash; Selected Work
           </p>
           <h2 className="max-w-2xl font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">
-            Real problem meaningful solutions.
+            {settings.work_heading}
           </h2>
         </Reveal>
 

@@ -3,6 +3,7 @@ import { getPublicStorageUrl } from "@/lib/supabase/storage";
 import type { PortfolioCategory } from "@/types/database";
 import {
   SITE_SETTINGS_SEED,
+  WHY_PRINCIPLES_SEED,
   CAPABILITIES_SEED,
   PROCESS_STEPS_SEED,
   FAQ_SEED,
@@ -21,6 +22,21 @@ export async function getSiteSettings() {
   const supabase = await createClient();
   const { data } = await supabase.from("site_settings").select("*").eq("id", 1).maybeSingle();
   return data ?? SITE_SETTINGS_SEED;
+}
+
+export async function getWhyPrinciples() {
+  const supabase = await createClient();
+  const { data } = await supabase
+    .from("why_principles")
+    .select("*")
+    .order("display_order", { ascending: true });
+
+  if (data && data.length > 0) return data;
+  return WHY_PRINCIPLES_SEED.map((item, index) => ({
+    id: `seed-${index}`,
+    display_order: index,
+    ...item,
+  }));
 }
 
 export async function getCapabilities() {

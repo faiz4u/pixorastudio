@@ -13,6 +13,7 @@ import path from "node:path";
 import { createAdminClient } from "../lib/supabase/admin";
 import {
   SITE_SETTINGS_SEED,
+  WHY_PRINCIPLES_SEED,
   CAPABILITIES_SEED,
   PROCESS_STEPS_SEED,
   FAQ_SEED,
@@ -40,7 +41,7 @@ async function uploadImage(bucket: string, storagePath: string, localFile: strin
 async function seedSiteImages() {
   console.log("Uploading site images...");
   for (const { storagePath, localPath } of Object.values(SITE_IMAGES_SEED)) {
-    await uploadImage("site-images", storagePath, localPath.replace(/^\/seed\//, "seed/"));
+    await uploadImage("site-images", storagePath, localPath.replace(/^\//, ""));
   }
 
   const { error } = await supabase.from("site_images").upsert(
@@ -62,6 +63,16 @@ async function seedSiteSettings() {
     .upsert({ id: 1, ...SITE_SETTINGS_SEED }, { onConflict: "id" });
   if (error) throw new Error(`site_settings upsert failed: ${error.message}`);
   console.log("  site_settings row upserted");
+}
+
+async function seedWhyPrinciples() {
+  console.log("Upserting why_principles...");
+  await supabase.from("why_principles").delete().neq("id", "00000000-0000-0000-0000-000000000000");
+  const { error } = await supabase.from("why_principles").insert(
+    WHY_PRINCIPLES_SEED.map((principle, index) => ({ ...principle, display_order: index })),
+  );
+  if (error) throw new Error(`why_principles insert failed: ${error.message}`);
+  console.log(`  ${WHY_PRINCIPLES_SEED.length} why principles inserted`);
 }
 
 async function seedCapabilities() {
@@ -123,6 +134,7 @@ async function seedPortfolio() {
 async function main() {
   await seedSiteImages();
   await seedSiteSettings();
+  await seedWhyPrinciples();
   await seedCapabilities();
   await seedProcessSteps();
   await seedFaqItems();

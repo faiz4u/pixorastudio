@@ -13,7 +13,7 @@ const NAV_LINKS = [
   { href: "#contact", label: "Contact" },
 ];
 
-export function SiteHeader() {
+export function SiteHeader({ logo }: { logo: { url: string; alt: string } }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -21,11 +21,11 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-7xl items-center justify-between py-[22px]">
         <Link href="/" className="shrink-0 transition-transform duration-300 hover:scale-[1.03]">
           <Image
-            src="/logo-transparent.png"
-            alt="Pixora Studio"
+            src={logo.url}
+            alt={logo.alt}
             width={260}
             height={54}
-            className="h-[54px] w-[260px]"
+            className="h-[54px] w-[260px] object-contain object-left"
             priority
           />
         </Link>
