@@ -86,6 +86,59 @@ export function SiteSettingsForm({ settings }: { settings: SiteSettings }) {
         <Field name="why_heading" label="Heading" defaultValue={settings.why_heading} required />
         <Field name="why_subheading" label="Subheading" defaultValue={settings.why_subheading} />
         <Field name="why_body" label="Body" defaultValue={settings.why_body} textarea />
+        <p className="text-xs text-muted-foreground">
+          The three principles listed under this section are managed in the “Why principles” tab.
+        </p>
+      </section>
+
+      <section className="flex flex-col gap-4">
+        <h2 className="font-heading text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+          Selected work
+        </h2>
+        <Field name="work_heading" label="Heading" defaultValue={settings.work_heading} />
+      </section>
+
+      <section className="flex flex-col gap-4">
+        <h2 className="font-heading text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+          Capabilities
+        </h2>
+        <Field
+          name="capabilities_heading"
+          label="Heading"
+          defaultValue={settings.capabilities_heading}
+        />
+        <Field
+          name="capabilities_subheading"
+          label="Subheading"
+          defaultValue={settings.capabilities_subheading}
+          textarea
+        />
+      </section>
+
+      <section className="flex flex-col gap-4">
+        <h2 className="font-heading text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+          Process
+        </h2>
+        <Field name="process_heading" label="Heading" defaultValue={settings.process_heading} />
+        <Field
+          name="process_subheading"
+          label="Subheading"
+          defaultValue={settings.process_subheading}
+          textarea
+        />
+      </section>
+
+      <section className="flex flex-col gap-4">
+        <h2 className="font-heading text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+          Start a project
+        </h2>
+        <Field name="contact_heading" label="Heading" defaultValue={settings.contact_heading} />
+        <Field
+          name="contact_subheading"
+          label="Subheading"
+          defaultValue={settings.contact_subheading}
+          textarea
+        />
       </section>
 
       <section className="flex flex-col gap-4">

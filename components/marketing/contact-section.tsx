@@ -14,11 +14,10 @@ export async function ContactSection() {
               04 &mdash; Start a Project
             </p>
             <h2 className="max-w-md font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">
-              Tell us what you&apos;re building.
+              {settings.contact_heading}
             </h2>
             <p className="mt-5 max-w-md text-xl leading-relaxed text-foreground">
-              Share a few details and we&apos;ll come back within one working day with a point of
-              view, a scope and a fixed quote. No decks, no sales calls you didn&apos;t ask for.
+              {settings.contact_subheading}
             </p>
 
             <div className="mt-10 divide-y divide-border rounded-2xl border border-border">

@@ -25,6 +25,16 @@ export const SITE_SETTINGS_SEED = {
   why_subheading: "We believe design should do more than look beautiful.",
   why_body:
     "It should solve problems, communicate clearly and create meaningful outcomes. That's why our approach starts with research and understanding — not decoration.",
+  work_heading: "Real problem meaningful solutions.",
+  capabilities_heading: "Eight disciplines, one studio.",
+  capabilities_subheading:
+    "Good design isn't a single moment. It's a process of understanding, exploring, testing and refining. Hire us for one thing or the whole system.",
+  process_heading: "How we turn problems into possibilities.",
+  process_subheading:
+    "Every project is different. Our approach stays focused: understand deeply, think strategically, and design with purpose.",
+  contact_heading: "Tell us what you're building.",
+  contact_subheading:
+    "Share a few details and we'll come back within one working day with a point of view, a scope and a fixed quote. No decks, no sales calls you didn't ask for.",
   contact_whatsapp: "+91-8083019809",
   contact_email: "pixorastudio8@gmail.com",
   contact_hours: "Mon-Sat, 10:00-18:00 IST",
@@ -33,18 +43,18 @@ export const SITE_SETTINGS_SEED = {
   social_linkedin: "",
 } as const;
 
-export const WHY_PRINCIPLES = [
+export const WHY_PRINCIPLES_SEED = [
   {
     title: "Understand Deeply",
-    body: "We look beyond assumptions to understand people, behavior and context.",
+    description: "We look beyond assumptions to understand people, behavior and context.",
   },
   {
     title: "Design Intentionally",
-    body: "Every visual and interaction has a reason behind it.",
+    description: "Every visual and interaction has a reason behind it.",
   },
   {
     title: "Create Meaningfully",
-    body: "We design experiences that create value for people and businesses.",
+    description: "We design experiences that create value for people and businesses.",
   },
 ] as const;
 
@@ -201,6 +211,11 @@ export const PORTFOLIO_CATEGORY_LABELS: Record<PortfolioCategory, string> = {
 };
 
 export const SITE_IMAGES_SEED = {
+  logo: {
+    localPath: "/logo-transparent.png",
+    storagePath: "logo.png",
+    alt: "Pixora Studio",
+  },
   hero: { localPath: "/seed/hero.png", storagePath: "hero.png", alt: "Pixora Studio hero visual" },
   about_office: {
     localPath: "/seed/about-office.png",

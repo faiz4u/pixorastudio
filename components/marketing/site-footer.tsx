@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Phone, Mail, ArrowUpRight } from "lucide-react";
-import { getSiteSettings } from "@/lib/content/get-site-content";
+import { getSiteSettings, getSiteImage } from "@/lib/content/get-site-content";
 
 const STUDIO_LINKS = [
   { href: "#work", label: "Work" },
@@ -10,7 +10,7 @@ const STUDIO_LINKS = [
 ];
 
 export async function SiteFooter() {
-  const settings = await getSiteSettings();
+  const [settings, logo] = await Promise.all([getSiteSettings(), getSiteImage("logo")]);
   const year = new Date().getFullYear();
 
   return (
@@ -18,11 +18,11 @@ export async function SiteFooter() {
       <div className="mx-auto grid max-w-7xl gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]">
         <div>
           <Image
-            src="/logo-transparent.png"
-            alt="Pixora Studio"
+            src={logo.url}
+            alt={logo.alt}
             width={193}
             height={40}
-            className="h-[40px] w-[193px]"
+            className="h-[40px] w-[193px] object-contain object-left"
           />
           <p className="mt-4 max-w-xs text-sm text-muted-foreground">{settings.footer_tagline}</p>
         </div>

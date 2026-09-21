@@ -1,11 +1,15 @@
 import Image from "next/image";
-import { getSiteSettings, getSiteImage } from "@/lib/content/get-site-content";
-import { WHY_PRINCIPLES } from "@/lib/content/site-content";
+import {
+  getSiteSettings,
+  getSiteImage,
+  getWhyPrinciples,
+} from "@/lib/content/get-site-content";
 import { Reveal } from "@/components/marketing/reveal";
 
 export async function WhySection() {
-  const [settings, officeImage] = await Promise.all([
+  const [settings, principles, officeImage] = await Promise.all([
     getSiteSettings(),
+    getWhyPrinciples(),
     getSiteImage("about_office"),
   ]);
 
@@ -32,14 +36,16 @@ export async function WhySection() {
               {settings.why_body}
             </p>
 
-            <p className="mt-10 mb-5 text-xl font-bold text-foreground">3 Principles</p>
+            <p className="mt-10 mb-5 text-xl font-bold text-foreground">
+              {principles.length} Principles
+            </p>
             <ol className="flex flex-col gap-7">
-              {WHY_PRINCIPLES.map((principle, index) => (
-                <li key={principle.title}>
+              {principles.map((principle, index) => (
+                <li key={principle.id}>
                   <p className="text-xl font-bold text-brand">
                     {String(index + 1).padStart(2, "0")} &mdash; {principle.title}
                   </p>
-                  <p className="mt-1 text-lg text-foreground">{principle.body}</p>
+                  <p className="mt-1 text-lg text-foreground">{principle.description}</p>
                 </li>
               ))}
             </ol>

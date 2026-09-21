@@ -1,8 +1,9 @@
-import { getCapabilities } from "@/lib/content/get-site-content";
+import { getCapabilities, getSiteSettings } from "@/lib/content/get-site-content";
 import { Reveal } from "@/components/marketing/reveal";
 
 export async function CapabilitiesSection() {
-  const capabilities = (await getCapabilities()).slice(0, 6);
+  const [allCapabilities, settings] = await Promise.all([getCapabilities(), getSiteSettings()]);
+  const capabilities = allCapabilities.slice(0, 6);
 
   return (
     <section
@@ -22,14 +23,13 @@ export async function CapabilitiesSection() {
                 02 &mdash; Capabilities
               </p>
               <h2 className="max-w-xl font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">
-                Eight disciplines, one studio.
+                {settings.capabilities_heading}
               </h2>
             </div>
           </Reveal>
           <Reveal direction="right" delay={100}>
             <p className="text-xl leading-relaxed text-foreground">
-              Good design isn&apos;t a single moment. It&apos;s a process of understanding,
-              exploring, testing and refining. Hire us for one thing or the whole system.
+              {settings.capabilities_subheading}
             </p>
           </Reveal>
         </div>

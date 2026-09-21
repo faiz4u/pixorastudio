@@ -1,10 +1,10 @@
 import Image from "next/image";
-import { getProcessSteps } from "@/lib/content/get-site-content";
+import { getProcessSteps, getSiteSettings } from "@/lib/content/get-site-content";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/marketing/reveal";
 
 export async function ProcessSection() {
-  const steps = await getProcessSteps();
+  const [steps, settings] = await Promise.all([getProcessSteps(), getSiteSettings()]);
 
   return (
     <section
@@ -24,14 +24,13 @@ export async function ProcessSection() {
                 03 &mdash; Process
               </p>
               <h2 className="max-w-xl font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">
-                How we turn problems into possibilities.
+                {settings.process_heading}
               </h2>
             </div>
           </Reveal>
           <Reveal direction="right" delay={100}>
             <p className="text-xl leading-relaxed text-foreground">
-              Every project is different. Our approach stays focused: understand deeply, think
-              strategically, and design with purpose.
+              {settings.process_subheading}
             </p>
           </Reveal>
         </div>

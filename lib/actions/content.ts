@@ -34,7 +34,7 @@ export async function saveSiteSettings(
   return { status: "success", message: "Site copy saved." };
 }
 
-type TitledTable = "capabilities" | "process_steps";
+type TitledTable = "capabilities" | "process_steps" | "why_principles";
 
 async function saveTitledItem(table: TitledTable, formData: FormData): Promise<ContentActionState> {
   const parsed = titledItemSchema.safeParse({
@@ -67,6 +67,14 @@ async function deleteTitledItem(table: TitledTable, id: string) {
   const { error } = await supabase.from(table).delete().eq("id", id);
   if (error) throw new Error(error.message);
   refreshContentPaths();
+}
+
+export async function saveWhyPrinciple(_prevState: ContentActionState, formData: FormData) {
+  return saveTitledItem("why_principles", formData);
+}
+
+export async function deleteWhyPrinciple(id: string) {
+  return deleteTitledItem("why_principles", id);
 }
 
 export async function saveCapability(_prevState: ContentActionState, formData: FormData) {
