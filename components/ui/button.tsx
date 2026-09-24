@@ -58,6 +58,10 @@ function Button({
       data-variant={variant}
       data-size={size}
       className={cn(buttonVariants({ variant, size, className }))}
+      // Password managers / form-filler extensions (e.g. LastPass) tag
+      // buttons with their own attribute (fdprocessedid) before React
+      // hydrates, which React otherwise flags as a hydration mismatch.
+      suppressHydrationWarning
       {...props}
     />
   )

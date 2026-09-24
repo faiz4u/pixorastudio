@@ -1,6 +1,7 @@
 import { getSiteSettings } from "@/lib/content/get-site-content";
 import { ContactForm } from "@/components/marketing/contact-form";
 import { Reveal } from "@/components/marketing/reveal";
+import { BookAppointmentModal } from "@/components/marketing/book-appointment-modal";
 
 export async function ContactSection() {
   const settings = await getSiteSettings();
@@ -58,11 +59,7 @@ export async function ContactSection() {
                   </p>
                   <p className="mt-2 break-words text-xl font-bold">{settings.contact_hours}</p>
                 </div>
-                <p className="shrink-0 text-right text-sm text-foreground">
-                  Working remotely
-                  <br />
-                  worldwide
-                </p>
+                <BookAppointmentModal />
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { submitLead, type LeadActionState } from "@/lib/actions/leads";
 import { PROJECT_TYPE_OPTIONS, BUDGET_RANGE_OPTIONS } from "@/lib/validation/lead";
 import { Input } from "@/components/ui/input";
@@ -18,6 +18,13 @@ const initialState: LeadActionState = { status: "idle" };
 
 export function ContactForm() {
   const [state, formAction, isPending] = useActionState(submitLead, initialState);
+  // Set once on mount (uncontrolled, written imperatively so there's no
+  // server/client render to mismatch); the server rejects a submission that
+  // arrives faster than a human could plausibly fill this form out.
+  const formRenderedAtRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    if (formRenderedAtRef.current) formRenderedAtRef.current.value = String(Date.now());
+  }, []);
 
   return (
     <form
@@ -33,6 +40,7 @@ export function ContactForm() {
         className="absolute -left-[9999px]"
         aria-hidden
       />
+      <input type="hidden" name="formRenderedAt" ref={formRenderedAtRef} defaultValue="" />
 
       <div className="flex flex-col gap-2">
         <Label htmlFor="name" className={fieldLabel}>
@@ -60,7 +68,13 @@ export function ContactForm() {
         <div className="flex flex-wrap gap-3">
           {PROJECT_TYPE_OPTIONS.map((option) => (
             <label key={option} className={pill}>
-              <input type="checkbox" name="projectTypes" value={option} className="sr-only" />
+              <input
+                type="checkbox"
+                name="projectTypes"
+                value={option}
+                className="sr-only"
+                suppressHydrationWarning
+              />
               {option}
             </label>
           ))}
@@ -72,7 +86,13 @@ export function ContactForm() {
         <div className="flex flex-wrap gap-3">
           {BUDGET_RANGE_OPTIONS.map((option) => (
             <label key={option} className={pill}>
-              <input type="radio" name="budgetRange" value={option} className="sr-only" />
+              <input
+                type="radio"
+                name="budgetRange"
+                value={option}
+                className="sr-only"
+                suppressHydrationWarning
+              />
               {option}
             </label>
           ))}

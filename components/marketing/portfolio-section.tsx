@@ -7,8 +7,8 @@ export async function PortfolioSection() {
   const [projects, settings] = await Promise.all([getPortfolio(), getSiteSettings()]);
 
   return (
-    <section id="work" className="px-6 py-16 sm:px-10 sm:py-20 lg:px-20 lg:py-24">
-      <div className="mx-auto max-w-7xl">
+    <section id="work" className="relative px-6 py-16 sm:px-10 sm:py-20 lg:px-20 lg:py-24">
+      <div className="relative z-10 mx-auto max-w-7xl">
         <Reveal>
           <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">
             01 &mdash; Selected Work

@@ -24,16 +24,26 @@ export async function HeroSection() {
   const settings = await getSiteSettings();
 
   return (
-    <section className="relative isolate overflow-hidden px-6 py-16 pt-10 sm:px-10 sm:py-20 sm:pt-14 lg:px-20 lg:py-24 lg:pt-16">
+    <section className="relative overflow-hidden px-6 py-16 pt-10 sm:px-10 sm:py-20 sm:pt-14 lg:px-20 lg:py-24 lg:pt-16">
+      {/* Small screens: the full background image crowds out the hero copy, so
+          swap it for just the top-right glow the image already carries, over
+          the same solid background color. Both sit at -z-20 — deeper than the
+          ambient shapes canvas (-z-10) — so the shapes stay visible in front
+          of this background and behind the copy below, instead of the old
+          `isolate` sealing this section into one opaque unit above the canvas. */}
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_top_right,_rgba(116,75,219,0.35)_0%,_transparent_60%)] sm:hidden"
+      />
       <Image
         src="/hero-bg.png"
         alt=""
         fill
         priority
-        className="-z-10 animate-hero-zoom object-cover object-right"
+        className="-z-20 hidden animate-hero-zoom object-cover object-right sm:block"
       />
 
-      <div className="mx-auto max-w-7xl">
+      <div className="relative z-10 mx-auto max-w-7xl">
         <div className="max-w-2xl">
           <Reveal delay={0}>
             <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">

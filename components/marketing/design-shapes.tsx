@@ -403,7 +403,7 @@ export function DesignShapes() {
     <canvas
       ref={canvasRef}
       aria-hidden
-      className="pointer-events-none fixed inset-0 z-30 h-full w-full opacity-0 transition-opacity duration-1000"
+      className="pointer-events-none fixed inset-0 -z-10 h-full w-full opacity-0 transition-opacity duration-1000"
     />
   );
 }
