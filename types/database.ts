@@ -8,6 +8,8 @@
 
 export type PortfolioCategory = "branding" | "social" | "ui_ux" | "product";
 export type LeadStatus = "new" | "contacted" | "archived";
+export type AppointmentTimeSlot = "morning" | "afternoon" | "evening";
+export type AppointmentStatus = "pending" | "confirmed" | "cancelled";
 
 export type Database = {
   public: {
@@ -72,6 +74,30 @@ export type Database = {
           created_at?: string;
         };
         Update: Partial<Database["public"]["Tables"]["leads"]["Insert"]>;
+        Relationships: [];
+      };
+      appointments: {
+        Row: {
+          id: string;
+          name: string;
+          email: string;
+          preferred_date: string;
+          time_slot: AppointmentTimeSlot;
+          notes: string | null;
+          status: AppointmentStatus;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          name: string;
+          email: string;
+          preferred_date: string;
+          time_slot: AppointmentTimeSlot;
+          notes?: string | null;
+          status?: AppointmentStatus;
+          created_at?: string;
+        };
+        Update: Partial<Database["public"]["Tables"]["appointments"]["Insert"]>;
         Relationships: [];
       };
       site_settings: {
@@ -204,7 +230,17 @@ export type Database = {
       };
     };
     Views: Record<string, never>;
-    Functions: Record<string, never>;
+    Functions: {
+      check_and_record_rate_limit: {
+        Args: {
+          p_source: string;
+          p_identifier: string;
+          p_max_hits: number;
+          p_window_seconds: number;
+        };
+        Returns: boolean;
+      };
+    };
     Enums: Record<string, never>;
   };
 };

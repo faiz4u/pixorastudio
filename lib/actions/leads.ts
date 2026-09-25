@@ -5,6 +5,8 @@ import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { env, isLeadEmailConfigured } from "@/lib/env";
 import { leadSchema } from "@/lib/validation/lead";
+import { RATE_LIMIT_MESSAGE } from "@/lib/validation/spam";
+import { checkRateLimit } from "@/lib/security/rate-limit";
 import type { LeadStatus } from "@/types/database";
 
 export type LeadActionState = {
@@ -23,6 +25,7 @@ export async function submitLead(
     budgetRange: formData.get("budgetRange") ?? "",
     message: formData.get("message") ?? "",
     company: formData.get("company") ?? "",
+    formRenderedAt: formData.get("formRenderedAt") ?? "",
   });
 
   if (!parsed.success) {
@@ -32,6 +35,12 @@ export async function submitLead(
   const { name, whatsappNumber, projectTypes, budgetRange, message } = parsed.data;
 
   const supabase = await createClient();
+
+  const allowed = await checkRateLimit(supabase, "lead", { maxHits: 5, windowSeconds: 3600 });
+  if (!allowed) {
+    return { status: "error", message: RATE_LIMIT_MESSAGE };
+  }
+
   const { error } = await supabase.from("leads").insert({
     name,
     whatsapp_number: whatsappNumber,

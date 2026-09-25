@@ -25,7 +25,7 @@ export function SiteHeader({ logo }: { logo: { url: string; alt: string } }) {
             alt={logo.alt}
             width={260}
             height={54}
-            className="h-[54px] w-[260px] object-contain object-left"
+            className="h-9 w-auto object-contain object-left sm:h-[54px] sm:w-[260px]"
             priority
           />
         </Link>
@@ -58,6 +58,10 @@ export function SiteHeader({ logo }: { logo: { url: string; alt: string } }) {
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((v) => !v)}
           className="text-foreground md:hidden"
+          // Password managers / form-filler extensions tag buttons with
+          // their own attribute (fdprocessedid) before React hydrates,
+          // which React otherwise flags as a hydration mismatch.
+          suppressHydrationWarning
         >
           {open ? <X className="size-6" /> : <Menu className="size-6" />}
         </button>

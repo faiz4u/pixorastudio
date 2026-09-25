@@ -17,10 +17,10 @@ export async function WhySection() {
     <section className="relative overflow-hidden px-6 py-16 sm:px-10 sm:py-20 lg:px-20 lg:py-24">
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-56 -left-56 h-[42rem] w-[42rem] rounded-full bg-[radial-gradient(circle,_#744bdb_0%,_transparent_70%)] opacity-25"
+        className="pointer-events-none absolute -bottom-56 -left-56 -z-20 h-[42rem] w-[42rem] rounded-full bg-[radial-gradient(circle,_#744bdb_0%,_transparent_70%)] opacity-25"
       />
 
-      <div className="relative mx-auto grid max-w-7xl items-stretch gap-5 lg:grid-cols-2">
+      <div className="relative z-10 mx-auto grid max-w-7xl items-stretch gap-5 lg:grid-cols-2">
         <Reveal direction="left">
           <div>
             <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">
