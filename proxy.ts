@@ -36,10 +36,18 @@ export async function proxy(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const isAdminRoute = request.nextUrl.pathname.startsWith("/admin");
-  const isLoginRoute = request.nextUrl.pathname.startsWith("/admin/login");
+  const { pathname } = request.nextUrl;
+  const isAdminRoute = pathname.startsWith("/admin");
+  const isLoginRoute = pathname.startsWith("/admin/login");
+  // Signed-out admins must be able to request a reset link.
+  const isForgotPasswordRoute = pathname.startsWith("/admin/forgot-password");
 
-  if (isAdminRoute && !isLoginRoute && !user) {
+  if (pathname.startsWith("/admin/reset-password") && !user) {
+    // Only reachable with the recovery session the email link creates.
+    return NextResponse.redirect(new URL("/admin/forgot-password?error=invalid-link", request.url));
+  }
+
+  if (isAdminRoute && !isLoginRoute && !isForgotPasswordRoute && !user) {
     const loginUrl = new URL("/admin/login", request.url);
     loginUrl.searchParams.set("redirectTo", request.nextUrl.pathname);
     return NextResponse.redirect(loginUrl);

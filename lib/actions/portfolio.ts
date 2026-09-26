@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { portfolioSchema } from "@/lib/validation/portfolio";
+import { imageExtension, validateSiteImageFile } from "@/lib/validation/media";
 
 export type PortfolioActionState = {
   status: "idle" | "success" | "error";
@@ -44,7 +45,10 @@ export async function savePortfolioProject(
   let coverImagePath: string | undefined;
   const coverImage = formData.get("coverImage");
   if (coverImage instanceof File && coverImage.size > 0) {
-    const ext = coverImage.name.split(".").pop() || "png";
+    const fileError = validateSiteImageFile(coverImage);
+    if (fileError) return { status: "error", message: fileError };
+    // Extension from the validated type, never the uploaded filename.
+    const ext = imageExtension(coverImage.type);
     const path = `${parsed.data.slug}/cover-${Date.now()}.${ext}`;
     const { error: uploadError } = await supabase.storage
       .from("portfolio")

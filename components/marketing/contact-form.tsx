@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState, useEffect, useRef } from "react";
+import { ConsentCheckbox } from "@/components/marketing/consent-checkbox";
 import { submitLead, type LeadActionState } from "@/lib/actions/leads";
 import { PROJECT_TYPE_OPTIONS, BUDGET_RANGE_OPTIONS } from "@/lib/validation/lead";
 import { Input } from "@/components/ui/input";
@@ -29,7 +30,7 @@ export function ContactForm() {
   return (
     <form
       action={formAction}
-      className="flex h-full flex-col gap-7 rounded-3xl border border-border p-8"
+      className="flex h-full flex-col gap-7 rounded-3xl border border-border bg-background p-8"
     >
       {/* Honeypot: hidden from real visitors, so any bot that fills it out gets rejected server-side. */}
       <input
@@ -40,7 +41,7 @@ export function ContactForm() {
         className="absolute -left-[9999px]"
         aria-hidden
       />
-      <input type="hidden" name="formRenderedAt" ref={formRenderedAtRef} defaultValue="" />
+      <input type="hidden" name="formRenderedAt" ref={formRenderedAtRef} />
 
       <div className="flex flex-col gap-2">
         <Label htmlFor="name" className={fieldLabel}>
@@ -99,6 +100,8 @@ export function ContactForm() {
         </div>
       </fieldset>
 
+      <ConsentCheckbox id="contact-consent" purpose="to respond to this enquiry" />
+
       {state.status !== "idle" && (
         <p
           className={cn(
@@ -121,7 +124,7 @@ export function ContactForm() {
       </Button>
       <p className="text-sm text-muted-foreground">
         <span className="font-semibold text-foreground">Note:</span> we reply within one working
-        day. Your details stay with us — never shared, never sold.
+        day. We use your details only to respond to you — never sold, never used for ads.
       </p>
     </form>
   );

@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
-import { validateSiteImageFile } from "@/lib/validation/media";
+import { imageExtension, validateSiteImageFile } from "@/lib/validation/media";
 
 export type MediaActionState = {
   status: "idle" | "success" | "error";
@@ -39,8 +39,8 @@ export async function saveSiteImage(
   // A fresh filename per upload: overwriting the same path keeps serving the
   // old image from the CDN/image cache (max-age=3600) and leaves orphans
   // behind when the extension changes.
-  const rawExt = file.name.includes(".") ? file.name.split(".").pop()! : "";
-  const ext = rawExt.toLowerCase().replace(/[^a-z0-9]/g, "") || "png";
+  // Extension from the validated type, never the uploaded filename.
+  const ext = imageExtension(file.type);
   const path = `${slot}-${Date.now()}.${ext}`;
 
   const { error: uploadError } = await supabase.storage

@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { honeypotField, formRenderedAtField } from "@/lib/validation/spam";
+import { consentField } from "@/lib/validation/consent";
 
 export const TIME_SLOTS = ["morning", "afternoon", "evening"] as const;
 
@@ -30,6 +31,7 @@ export const appointmentSchema = z.object({
     .refine(isTodayOrLater, "Pick a date from today onward"),
   timeSlot: z.enum(TIME_SLOTS, { message: "Pick a time slot" }),
   notes: z.string().trim().max(1000).optional().or(z.literal("")),
+  consent: consentField,
   // Honeypot: real visitors never fill this in (it's visually hidden). A
   // submission with it populated is almost certainly a bot.
   company: honeypotField,

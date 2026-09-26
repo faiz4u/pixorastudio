@@ -1,12 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Phone, Mail, ArrowUpRight } from "lucide-react";
 import { getSiteSettings, getSiteImage } from "@/lib/content/get-site-content";
 
 const STUDIO_LINKS = [
-  { href: "#work", label: "Work" },
-  { href: "#services", label: "Service" },
-  { href: "#process", label: "Approach" },
-  { href: "#contact", label: "About" },
+  { href: "/#work", label: "Work" },
+  { href: "/#services", label: "Service" },
+  { href: "/#process", label: "Approach" },
+  { href: "/#contact", label: "About" },
 ];
 
 export async function SiteFooter() {
@@ -89,8 +90,16 @@ export async function SiteFooter() {
         </div>
       </div>
 
-      <div className="mx-auto mt-12 max-w-7xl border-t border-border pt-6 text-center text-xs text-muted-foreground">
-        © {year} Pixora Studio. All rights reserved.
+      <div className="mx-auto mt-12 flex max-w-7xl flex-col items-center justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row">
+        <p>© {year} Pixora Studio. All rights reserved.</p>
+        <nav aria-label="Legal" className="flex flex-wrap justify-center gap-x-5 gap-y-2">
+          <Link href="/privacy-policy" className="hover:text-foreground">
+            Privacy Policy
+          </Link>
+          <Link href="/terms-of-use" className="hover:text-foreground">
+            Terms of Use
+          </Link>
+        </nav>
       </div>
     </footer>
   );

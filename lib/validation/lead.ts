@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { honeypotField, formRenderedAtField } from "@/lib/validation/spam";
+import { consentField } from "@/lib/validation/consent";
 
 export const leadSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(200),
@@ -7,6 +8,7 @@ export const leadSchema = z.object({
   projectTypes: z.array(z.string()).min(1, "Select at least one option"),
   budgetRange: z.string().trim().max(60).optional().or(z.literal("")),
   message: z.string().trim().max(2000).optional().or(z.literal("")),
+  consent: consentField,
   // Honeypot: real visitors never fill this in (it's visually hidden). A
   // submission with it populated is almost certainly a bot.
   company: honeypotField,
