@@ -24,6 +24,7 @@ export async function submitLead(
     projectTypes: formData.getAll("projectTypes"),
     budgetRange: formData.get("budgetRange") ?? "",
     message: formData.get("message") ?? "",
+    consent: formData.get("consent"),
     company: formData.get("company") ?? "",
     formRenderedAt: formData.get("formRenderedAt") ?? "",
   });

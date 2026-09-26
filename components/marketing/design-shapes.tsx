@@ -11,14 +11,14 @@ import { useEffect, useRef } from "react";
  * across the screen and a travelling wave shoves the shapes outward as its
  * front passes them. Everything is small and crisp (no blur, glow or big
  * fills) so it never softens the page. Kept cheap:
- *  - one fixed 2D canvas, ~14-40 shapes, plain paths (no filters or images)
+ *  - one fixed 2D canvas, ~8-24 shapes, plain paths (no filters or images)
  *  - starts only after the browser is idle, so it can't delay LCP or input
  *  - capped at ~40fps and fully paused while the tab is hidden
  *  - skipped entirely for prefers-reduced-motion and Save-Data
  */
 
 const FRAME_MS = 1000 / 40;
-const MAX_SHAPES = 40;
+const MAX_SHAPES = 24;
 const MAX_DPR = 2;
 const FADE_ZONE = 0.14; // fraction of viewport height used to fade shapes in/out
 
@@ -133,7 +133,7 @@ export function DesignShapes() {
       canvas!.height = Math.round(height * dpr);
       ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      const target = Math.max(12, Math.min(MAX_SHAPES, Math.round((width / 36) * (lowPower ? 0.6 : 1))));
+      const target = Math.max(8, Math.min(MAX_SHAPES, Math.round((width / 60) * (lowPower ? 0.6 : 1))));
       while (shapes.length < target) shapes.push(spawn(null, width, height, true));
       shapes.length = Math.min(shapes.length, target);
     }

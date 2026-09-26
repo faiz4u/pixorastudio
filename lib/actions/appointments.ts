@@ -1,12 +1,13 @@
 "use server";
 
 import { Resend } from "resend";
+import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { env, isLeadEmailConfigured } from "@/lib/env";
 import { appointmentSchema, TIME_SLOT_LABELS } from "@/lib/validation/appointment";
 import { RATE_LIMIT_MESSAGE } from "@/lib/validation/spam";
 import { checkRateLimit } from "@/lib/security/rate-limit";
-import type { AppointmentTimeSlot } from "@/types/database";
+import type { AppointmentStatus, AppointmentTimeSlot } from "@/types/database";
 
 export type AppointmentActionState = {
   status: "idle" | "success" | "error";
@@ -23,11 +24,17 @@ export async function submitAppointment(
     preferredDate: formData.get("preferredDate"),
     timeSlot: formData.get("timeSlot"),
     notes: formData.get("notes") ?? "",
+    consent: formData.get("consent"),
     company: formData.get("company") ?? "",
     formRenderedAt: formData.get("formRenderedAt") ?? "",
   });
 
   if (!parsed.success) {
+    // The spam checks share a deliberately vague message, so log which field
+    // actually failed while developing.
+    if (process.env.NODE_ENV !== "production") {
+      console.warn("[appointment] validation failed:", parsed.error.issues.map((i) => i.path.join(".")));
+    }
     return { status: "error", message: parsed.error.issues[0]?.message ?? "Invalid input" };
   }
 
@@ -90,4 +97,18 @@ async function notifyAdminOfAppointment(appointment: {
     // The request is already saved; a failed email alert shouldn't fail
     // the user-facing submission.
   }
+}
+
+export async function updateAppointmentStatus(id: string, status: AppointmentStatus) {
+  const supabase = await createClient();
+  const { error } = await supabase.from("appointments").update({ status }).eq("id", id);
+  if (error) throw new Error(error.message);
+  revalidatePath("/admin/appointments");
+}
+
+export async function deleteAppointment(id: string) {
+  const supabase = await createClient();
+  const { error } = await supabase.from("appointments").delete().eq("id", id);
+  if (error) throw new Error(error.message);
+  revalidatePath("/admin/appointments");
 }

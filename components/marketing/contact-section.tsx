@@ -21,7 +21,7 @@ export async function ContactSection() {
               {settings.contact_subheading}
             </p>
 
-            <div className="mt-10 divide-y divide-border rounded-2xl border border-border">
+            <div className="mt-10 divide-y divide-border rounded-2xl border border-border bg-background">
               <div className="flex items-center justify-between gap-4 p-7">
                 <div className="min-w-0">
                   <p className="font-label text-xs uppercase tracking-widest text-muted-foreground">

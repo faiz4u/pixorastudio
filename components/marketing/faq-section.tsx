@@ -32,7 +32,7 @@ export async function FaqSection() {
           <Accordion
             type="single"
             collapsible
-            className="w-full rounded-2xl border border-border px-6 sm:px-10"
+            className="w-full rounded-2xl border border-border bg-background px-6 sm:px-10"
           >
             {faqs.map((faq) => (
               <AccordionItem key={faq.id} value={faq.id}>
