@@ -3,6 +3,7 @@
 import { Resend } from "resend";
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { env, isLeadEmailConfigured } from "@/lib/env";
 import { appointmentSchema, TIME_SLOT_LABELS } from "@/lib/validation/appointment";
 import { RATE_LIMIT_MESSAGE } from "@/lib/validation/spam";
@@ -40,14 +41,14 @@ export async function submitAppointment(
 
   const { name, email, preferredDate, timeSlot, notes } = parsed.data;
 
-  const supabase = await createClient();
-
-  const allowed = await checkRateLimit(supabase, "appointment", { maxHits: 3, windowSeconds: 3600 });
+  const allowed = await checkRateLimit("appointment", { maxHits: 3, windowSeconds: 3600 });
   if (!allowed) {
     return { status: "error", message: RATE_LIMIT_MESSAGE };
   }
 
-  const { error } = await supabase.from("appointments").insert({
+  // Inserted with the secret key: the public has no insert access
+  // (0007_security_hardening.sql), so every submission must pass the checks above.
+  const { error } = await createAdminClient().from("appointments").insert({
     name,
     email,
     preferred_date: preferredDate,

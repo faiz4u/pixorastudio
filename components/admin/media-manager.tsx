@@ -4,7 +4,7 @@ import { useActionState, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { saveSiteImage, type MediaActionState } from "@/lib/actions/media";
-import { formatFileSize, validateSiteImageFile } from "@/lib/validation/media";
+import { formatFileSize, IMAGE_ACCEPT, validateSiteImageFile } from "@/lib/validation/media";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -101,7 +101,7 @@ function SiteImageCard({ slot, label, url, altText }: SiteImageSlot) {
               id={`${slot}-image`}
               name="image"
               type="file"
-              accept="image/*"
+              accept={IMAGE_ACCEPT}
               onChange={handleFileChange}
               aria-invalid={fileError ? true : undefined}
             />

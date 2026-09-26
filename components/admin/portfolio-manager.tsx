@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState, useEffect, useState, useTransition } from "react";
+import { IMAGE_ACCEPT } from "@/lib/validation/media";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Pencil, Plus, Trash2 } from "lucide-react";
@@ -181,7 +182,7 @@ function PortfolioFormDialog({
                 className="h-24 w-full rounded-md object-cover"
               />
             )}
-            <Input id="coverImage" name="coverImage" type="file" accept="image/*" required={!project} />
+            <Input id="coverImage" name="coverImage" type="file" accept={IMAGE_ACCEPT} required={!project} />
           </div>
 
           <div className="flex flex-col gap-2">

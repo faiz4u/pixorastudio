@@ -3,6 +3,7 @@
 import { Resend } from "resend";
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { env, isLeadEmailConfigured } from "@/lib/env";
 import { leadSchema } from "@/lib/validation/lead";
 import { RATE_LIMIT_MESSAGE } from "@/lib/validation/spam";
@@ -35,14 +36,14 @@ export async function submitLead(
 
   const { name, whatsappNumber, projectTypes, budgetRange, message } = parsed.data;
 
-  const supabase = await createClient();
-
-  const allowed = await checkRateLimit(supabase, "lead", { maxHits: 5, windowSeconds: 3600 });
+  const allowed = await checkRateLimit("lead", { maxHits: 5, windowSeconds: 3600 });
   if (!allowed) {
     return { status: "error", message: RATE_LIMIT_MESSAGE };
   }
 
-  const { error } = await supabase.from("leads").insert({
+  // Inserted with the secret key: the public has no insert access
+  // (0007_security_hardening.sql), so every submission must pass the checks above.
+  const { error } = await createAdminClient().from("leads").insert({
     name,
     whatsapp_number: whatsappNumber,
     project_types: projectTypes,
