@@ -2,7 +2,8 @@ import { getSiteImage } from "@/lib/content/get-site-content";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/marketing/reveal";
 
-export async function CtaBanner() {
+/** `href` defaults to the contact section on the same page; pages without one pass "/contact". */
+export async function CtaBanner({ href = "#contact" }: { href?: string }) {
   const ctaImage = await getSiteImage("cta_banner");
 
   return (
@@ -27,7 +28,7 @@ export async function CtaBanner() {
           asChild
           className="h-auto shrink-0 rounded-full bg-white px-8 py-4 text-base font-bold text-primary transition-transform duration-300 hover:scale-[1.04] hover:bg-white/90 active:scale-[0.97]"
         >
-          <a href="#contact" className="inline-flex items-center gap-2">
+          <a href={href} className="inline-flex items-center gap-2">
             Start a Project <span aria-hidden>&rarr;</span>
           </a>
         </Button>

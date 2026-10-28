@@ -24,6 +24,11 @@ const envSchema = z.object({
   RESEND_API_KEY: optionalString,
   LEAD_NOTIFICATION_FROM_EMAIL: optionalEmail,
   LEAD_NOTIFICATION_TO_EMAIL: optionalEmail,
+  // Search and analytics, all optional. GA4 stays off until a measurement ID
+  // is set, which must not happen before the Privacy Policy covers analytics.
+  NEXT_PUBLIC_GA_MEASUREMENT_ID: optionalString,
+  NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: optionalString,
+  NEXT_PUBLIC_BING_SITE_VERIFICATION: optionalString,
 });
 
 const parsed = envSchema.safeParse({
@@ -34,6 +39,9 @@ const parsed = envSchema.safeParse({
   RESEND_API_KEY: process.env.RESEND_API_KEY,
   LEAD_NOTIFICATION_FROM_EMAIL: process.env.LEAD_NOTIFICATION_FROM_EMAIL,
   LEAD_NOTIFICATION_TO_EMAIL: process.env.LEAD_NOTIFICATION_TO_EMAIL,
+  NEXT_PUBLIC_GA_MEASUREMENT_ID: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID,
+  NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  NEXT_PUBLIC_BING_SITE_VERIFICATION: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION,
 });
 
 if (!parsed.success) {

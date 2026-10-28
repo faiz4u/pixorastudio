@@ -7,11 +7,13 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
+// Real pages rather than homepage anchors, so each section has its own URL to
+// rank (SEO report, section 6). The homepage anchors still work for old links.
 const NAV_LINKS = [
-  { href: "/#work", label: "Work" },
-  { href: "/#services", label: "Services" },
-  { href: "/#process", label: "Process" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/work", label: "Work" },
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function SiteHeader({ logo }: { logo: { url: string; alt: string } }) {
@@ -74,7 +76,7 @@ export function SiteHeader({ logo }: { logo: { url: string; alt: string } }) {
             asChild
             className="h-[46px] w-[180px] rounded-full bg-brand px-[14px] py-[7px] text-white transition-transform duration-300 hover:scale-[1.05] hover:bg-brand-hover active:scale-[0.97]"
           >
-            <Link href="/#contact" className="inline-flex items-center justify-center gap-2">
+            <Link href="/contact" className="inline-flex items-center justify-center gap-2">
               Start a project <span aria-hidden>&rarr;</span>
             </Link>
           </Button>
@@ -131,7 +133,7 @@ export function SiteHeader({ logo }: { logo: { url: string; alt: string } }) {
               </Link>
             ))}
             <Link
-              href="/#contact"
+              href="/contact"
               onClick={() => setOpen(false)}
               className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-brand px-4 py-2 text-center text-sm font-semibold text-white hover:bg-brand-hover"
             >

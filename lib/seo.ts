@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { env } from "@/lib/env";
+import { SERVICES, servicePath, type Service } from "@/lib/content/services";
 
 /**
  * Search-facing copy and structured-data helpers, following the SEO strategy
- * report (public/Pixora_Studio_SEO_Strategy_Report.pdf, sections 7 and 10).
+ * report (Pixora_Studio_SEO_Strategy_Report.pdf, sections 7 and 10).
  * Titles stay under ~60 characters and descriptions under ~155 so Google
  * doesn't truncate them.
  */
@@ -16,17 +17,6 @@ export const HOME_TITLE = "Design Studio in Patna | Branding, UI/UX - Pixora Stu
 
 export const HOME_DESCRIPTION =
   "Bihar's first research-driven design studio in Patna. Brand identity, UI/UX, websites, social creatives and pitch decks. Fixed quote in 1 day.";
-
-/** Services offered, as listed in the ProfessionalService structured data. */
-const SERVICES = [
-  "Logo and brand identity design",
-  "UI/UX design",
-  "Product design",
-  "Website design",
-  "Social media design",
-  "Pitch deck and presentation design",
-  "Graphic design",
-];
 
 /**
  * Title, description, canonical and social tags for one public page. Next
@@ -131,7 +121,7 @@ export function professionalServiceJsonLd(settings: StudioDetails, logoUrl: stri
       opens: "10:00",
       closes: "18:00",
     },
-    knowsAbout: SERVICES,
+    knowsAbout: SERVICES.map((service) => service.name),
     ...(sameAs.length > 0 && { sameAs }),
   };
 }
@@ -145,5 +135,62 @@ export function faqPageJsonLd(faqs: ReadonlyArray<{ question: string; answer: st
       name: faq.question,
       acceptedAnswer: { "@type": "Answer", text: faq.answer },
     })),
+  };
+}
+
+/** BreadcrumbList for inner pages; pairs with components/marketing/breadcrumbs.tsx. */
+export function breadcrumbJsonLd(items: ReadonlyArray<{ name: string; path: string }>) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: absoluteUrl(item.path),
+    })),
+  };
+}
+
+/** Service, provided by the homepage's ProfessionalService entity. */
+export function serviceJsonLd(service: Service) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.name,
+    serviceType: service.name,
+    description: service.description,
+    url: absoluteUrl(servicePath(service.slug)),
+    provider: { "@id": absoluteUrl("/#studio") },
+    areaServed: [
+      { "@type": "City", name: "Patna" },
+      { "@type": "State", name: "Bihar" },
+      { "@type": "Country", name: "India" },
+    ],
+  };
+}
+
+export function articleJsonLd(article: {
+  title: string;
+  description: string;
+  path: string;
+  datePublished: string;
+  dateModified?: string;
+  authorName?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.description,
+    url: absoluteUrl(article.path),
+    mainEntityOfPage: absoluteUrl(article.path),
+    image: absoluteUrl("/opengraph-image"),
+    datePublished: article.datePublished,
+    dateModified: article.dateModified ?? article.datePublished,
+    author: article.authorName
+      ? { "@type": "Person", name: article.authorName }
+      : { "@type": "Organization", name: SITE_NAME, url: absoluteUrl("/") },
+    publisher: { "@id": absoluteUrl("/#studio") },
   };
 }

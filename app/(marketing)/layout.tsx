@@ -1,6 +1,7 @@
 import { SiteHeader } from "@/components/marketing/site-header";
 import { SiteFooter } from "@/components/marketing/site-footer";
 import { DesignShapes } from "@/components/marketing/design-shapes";
+import { MobileContactBar } from "@/components/marketing/mobile-contact-bar";
 import { getSiteImage } from "@/lib/content/get-site-content";
 
 export default async function MarketingLayout({ children }: { children: React.ReactNode }) {
@@ -12,6 +13,7 @@ export default async function MarketingLayout({ children }: { children: React.Re
       <SiteHeader logo={logo} />
       {children}
       <SiteFooter />
+      <MobileContactBar />
     </>
   );
 }

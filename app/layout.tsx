@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo, Manrope, Montserrat } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
+import { Analytics } from "@/components/analytics";
 import { env } from "@/lib/env";
 import { HOME_DESCRIPTION, HOME_TITLE, SITE_NAME } from "@/lib/seo";
 import "./globals.css";
@@ -39,6 +40,12 @@ export const metadata: Metadata = {
   openGraph: { type: "website", siteName: SITE_NAME, locale: "en_IN" },
   twitter: { card: "summary_large_image" },
   formatDetection: { telephone: false, email: false, address: false },
+  verification: {
+    google: env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    ...(env.NEXT_PUBLIC_BING_SITE_VERIFICATION && {
+      other: { "msvalidate.01": env.NEXT_PUBLIC_BING_SITE_VERIFICATION },
+    }),
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -50,6 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
         {children}
         <Toaster theme="dark" richColors position="top-center" />
+        {env.NEXT_PUBLIC_GA_MEASUREMENT_ID && <Analytics measurementId={env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />}
       </body>
     </html>
   );
