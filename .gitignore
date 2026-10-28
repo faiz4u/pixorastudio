@@ -43,3 +43,6 @@ supabase/.temp/
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Confidential client documents (e.g. the SEO strategy report): keep out of git and out of public/
+/docs/private/

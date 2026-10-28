@@ -16,11 +16,27 @@ const optionalEmail = z.preprocess(
   z.string().email().optional(),
 );
 
+/**
+ * The production site is served only from https://www.pixorastudios.co.in
+ * (the bare domain and http:// redirect there). Canonical links, the sitemap,
+ * Open Graph tags and structured data are all built from this URL, so any
+ * other variant of the domain is pinned to that host: pointing Google at a
+ * URL that redirects sends it conflicting signals. Other hosts (localhost,
+ * preview deployments) pass through unchanged.
+ */
+const CANONICAL_HOST = "www.pixorastudios.co.in";
+
+function canonicalSiteUrl(value: string) {
+  const url = new URL(value);
+  if (url.hostname !== "pixorastudios.co.in" && url.hostname !== CANONICAL_HOST) return value;
+  return `https://${CANONICAL_HOST}`;
+}
+
 const envSchema = z.object({
   NEXT_PUBLIC_SUPABASE_URL: z.string().url(),
   NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: z.string().min(1),
   SUPABASE_SECRET_KEY: z.string().min(1),
-  NEXT_PUBLIC_SITE_URL: z.string().url().default("http://localhost:3000"),
+  NEXT_PUBLIC_SITE_URL: z.string().url().default("http://localhost:3000").transform(canonicalSiteUrl),
   RESEND_API_KEY: optionalString,
   LEAD_NOTIFICATION_FROM_EMAIL: optionalEmail,
   LEAD_NOTIFICATION_TO_EMAIL: optionalEmail,

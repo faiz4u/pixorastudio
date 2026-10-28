@@ -1,6 +1,7 @@
 # SEO: what's left for the studio
 
-Everything the code side of the SEO strategy report could do is done (phases 1–3). What's below needs
+Everything the code side of the SEO strategy report could do is done (phases 1–4, plus a Lighthouse
+performance and accessibility pass). What's below needs
 access, decisions or facts only the studio has. Work top to bottom: items are ordered by impact.
 
 Legend: **[Admin]** = Admin panel · **[Code]** = edit a file in this repo · **[Host]** = hosting/env vars ·
@@ -10,15 +11,17 @@ Legend: **[Admin]** = Admin panel · **[Code]** = edit a file in this repo · **
 
 ## 1. Before the next deploy (blocking)
 
-- [ ] **Move the SEO report out of `public/`.** [Code] `public/Pixora_Studio_SEO_Strategy_Report.pdf` is
-  served publicly at `/Pixora_Studio_SEO_Strategy_Report.pdf` and is marked confidential. Move it outside
-  `public/` (e.g. to `docs/`, or keep it off the repo entirely).
-- [ ] **Set the production site URL.** [Host] `NEXT_PUBLIC_SITE_URL=https://www.pixorastudios.co.in`.
-  Canonical links, the sitemap, `robots.txt`, Open Graph and structured data all use it. Today it falls back
-  to `http://localhost:3000`.
-- [ ] **One canonical host with HTTPS.** [Host] Make sure `pixorastudios.co.in` 301-redirects to
-  `https://www.pixorastudios.co.in` (or the reverse, but match `NEXT_PUBLIC_SITE_URL`). On Vercel: Project →
-  Domains → set the redirect.
+- [x] **SEO report removed from `public/`.** Keep confidential documents in `docs/private/`, which git ignores.
+- [x] **Canonical host.** The bare domain and `http://` already redirect to `https://www.pixorastudios.co.in`.
+  `lib/env.ts` now pins any variant of the domain in `NEXT_PUBLIC_SITE_URL` to that URL. The live host
+  currently has `http://pixorastudios.co.in`, which made every canonical link and sitemap entry point at a
+  redirect.
+- [ ] **Tidy the host setting anyway.** [Host] Set `NEXT_PUBLIC_SITE_URL=https://www.pixorastudios.co.in`, so
+  the dashboard matches what the code uses.
+- [ ] **Allow the password-reset redirect.** [Outside: Supabase → Authentication → URL Configuration] Admin
+  password-reset emails now link to `https://www.pixorastudios.co.in/auth/callback`. Make sure that URL is
+  in Redirect URLs, and set Site URL to `https://www.pixorastudios.co.in`. Otherwise reset links fall back to
+  the old host. After deploying, test one password reset.
 
 ## 2. Admin panel content
 

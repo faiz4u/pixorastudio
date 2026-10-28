@@ -5,7 +5,7 @@ import { ABOUT } from "@/lib/content/about";
 
 /**
  * Search-facing copy and structured-data helpers, following the SEO strategy
- * report (Pixora_Studio_SEO_Strategy_Report.pdf, sections 7 and 10).
+ * report (docs/private/Pixora_Studio_SEO_Strategy_Report.pdf, not committed; sections 7 and 10).
  * Titles stay under ~60 characters and descriptions under ~155 so Google
  * doesn't truncate them.
  */
