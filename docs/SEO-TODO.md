@@ -83,7 +83,7 @@ Legend: **[Admin]** = Admin panel · **[Code]** = edit a file in this repo · **
   Google's Rich Results Test and validator.schema.org after deploying.
 - [ ] **PageSpeed check.** [Outside] Test the homepage and a service page on mobile in PageSpeed Insights.
   `public/hero-bg.png` (4.2 MB) is served optimised through next/image, but a smaller source would still
-  help. `public/landingpage.png` (19 MB) looks unused; delete it if so.
+  help.
 - [ ] **GA4 (only after updating the Privacy Policy).** [Code + Host] The Privacy Policy currently says the
   site uses no analytics cookies, so GA4 is built in but switched off. To turn it on:
   1. Update the cookies section in `app/(marketing)/privacy-policy/page.tsx` to disclose Google Analytics,
