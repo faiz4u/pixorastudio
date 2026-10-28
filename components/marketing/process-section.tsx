@@ -20,7 +20,7 @@ export async function ProcessSection() {
         <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-center">
           <Reveal direction="left">
             <div>
-              <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">
+              <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand-text">
                 03 &mdash; Process
               </p>
               <h2 className="max-w-xl font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">

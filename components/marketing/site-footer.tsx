@@ -2,12 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { Phone, Mail, ArrowUpRight } from "lucide-react";
 import { getSiteSettings, getSiteImage } from "@/lib/content/get-site-content";
+import { SERVICES, servicePath } from "@/lib/content/services";
+import { ABOUT } from "@/lib/content/about";
+import { telUrl, whatsappUrl } from "@/lib/contact";
 
 const STUDIO_LINKS = [
-  { href: "/#work", label: "Work" },
-  { href: "/#services", label: "Service" },
-  { href: "/#process", label: "Approach" },
-  { href: "/#contact", label: "About" },
+  { href: "/work", label: "Work" },
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
+  { href: "/industries", label: "Industries" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export async function SiteFooter() {
@@ -16,7 +22,7 @@ export async function SiteFooter() {
 
   return (
     <footer className="border-t border-border px-6 pt-16 pb-8 sm:px-10 lg:px-20">
-      <div className="mx-auto grid max-w-7xl gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]">
+      <div className="mx-auto grid max-w-7xl gap-10 sm:grid-cols-2 lg:grid-cols-[1.6fr_0.8fr_1.2fr_0.8fr_1fr]">
         <div>
           <Image
             src={logo.url}
@@ -35,9 +41,24 @@ export async function SiteFooter() {
           <ul className="flex flex-col gap-2 text-sm">
             {STUDIO_LINKS.map((link) => (
               <li key={link.label}>
-                <a href={link.href} className="text-muted-foreground hover:text-foreground">
+                <Link href={link.href} className="text-muted-foreground hover:text-foreground">
                   {link.label}
-                </a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <p className="mb-4 font-label text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+            Services
+          </p>
+          <ul className="flex flex-col gap-2 text-sm">
+            {SERVICES.map((service) => (
+              <li key={service.slug}>
+                <Link href={servicePath(service.slug)} className="text-muted-foreground hover:text-foreground">
+                  {service.name}
+                </Link>
               </li>
             ))}
           </ul>
@@ -48,30 +69,51 @@ export async function SiteFooter() {
             Social Links
           </p>
           <ul className="flex flex-col gap-2 text-sm">
+            {/* Hidden until set in admin, rather than linking to "#". */}
+            {settings.social_instagram && (
+              <li>
+                <a
+                  href={settings.social_instagram}
+                  target="_blank"
+                  rel="noopener"
+                  className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
+                >
+                  Instagram <ArrowUpRight className="size-3.5" />
+                </a>
+              </li>
+            )}
+            {settings.social_linkedin && (
+              <li>
+                <a
+                  href={settings.social_linkedin}
+                  target="_blank"
+                  rel="noopener"
+                  className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
+                >
+                  LinkedIn <ArrowUpRight className="size-3.5" />
+                </a>
+              </li>
+            )}
             <li>
               <a
-                href={settings.social_instagram || "#"}
-                className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
-              >
-                Instagram <ArrowUpRight className="size-3.5" />
-              </a>
-            </li>
-            <li>
-              <a
-                href={settings.social_linkedin || "#"}
-                className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
-              >
-                LinkedIn <ArrowUpRight className="size-3.5" />
-              </a>
-            </li>
-            <li>
-              <a
-                href={`https://wa.me/${settings.contact_whatsapp.replace(/[^0-9]/g, "")}`}
+                href={whatsappUrl(settings.contact_whatsapp)}
                 className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
               >
                 WhatsApp <ArrowUpRight className="size-3.5" />
               </a>
             </li>
+            {ABOUT.googleBusinessProfile && (
+              <li>
+                <a
+                  href={ABOUT.googleBusinessProfile}
+                  target="_blank"
+                  rel="noopener"
+                  className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
+                >
+                  Find us on Google <ArrowUpRight className="size-3.5" />
+                </a>
+              </li>
+            )}
           </ul>
         </div>
 
@@ -80,12 +122,23 @@ export async function SiteFooter() {
             Get in Touch
           </p>
           <ul className="flex flex-col gap-3 text-sm">
-            <li className="flex items-center gap-2 text-muted-foreground">
-              <Phone className="size-4 shrink-0" /> {settings.contact_whatsapp}
+            <li>
+              <a
+                href={telUrl(settings.contact_whatsapp)}
+                className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
+              >
+                <Phone className="size-4 shrink-0" /> {settings.contact_whatsapp}
+              </a>
             </li>
-            <li className="flex items-center gap-2 text-muted-foreground">
-              <Mail className="size-4 shrink-0" /> {settings.contact_email}
+            <li>
+              <a
+                href={`mailto:${settings.contact_email}`}
+                className="flex items-center gap-2 break-all text-muted-foreground hover:text-foreground"
+              >
+                <Mail className="size-4 shrink-0" /> {settings.contact_email}
+              </a>
             </li>
+            <li className="text-muted-foreground">Patna, Bihar, India</li>
           </ul>
         </div>
       </div>

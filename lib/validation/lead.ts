@@ -19,18 +19,4 @@ export const leadSchema = z.object({
 
 export type LeadInput = z.infer<typeof leadSchema>;
 
-export const PROJECT_TYPE_OPTIONS = [
-  "Graphic Design",
-  "Branding",
-  "Social Media",
-  "Presentation Design",
-  "UI/UX Design",
-  "Product Design",
-] as const;
-
-export const BUDGET_RANGE_OPTIONS = [
-  "Under ₹50k",
-  "₹50k – ₹1.5L",
-  "₹1.5L – ₹5L",
-  "₹5L+ / retainer",
-] as const;
+export { PROJECT_TYPE_OPTIONS, BUDGET_RANGE_OPTIONS } from "@/lib/validation/lead-options";

@@ -45,7 +45,8 @@ export async function saveSiteImage(
 
   const { error: uploadError } = await supabase.storage
     .from("site-images")
-    .upload(path, file, { contentType: file.type });
+    // Every upload gets a new path, so the file never changes: cache it for a year.
+    .upload(path, file, { contentType: file.type, cacheControl: "31536000" });
   if (uploadError) return { status: "error", message: uploadError.message };
 
   const { error } = await supabase

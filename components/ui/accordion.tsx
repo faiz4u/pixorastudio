@@ -68,7 +68,13 @@ function AccordionContent({
   return (
     <AccordionPrimitive.Content
       data-slot="accordion-content"
-      className="overflow-hidden text-sm data-open:animate-accordion-down data-closed:animate-accordion-up"
+      className={cn(
+        "overflow-hidden text-sm data-open:animate-accordion-down data-closed:animate-accordion-up",
+        // forceMount keeps closed panels in the DOM (and so in the server
+        // HTML search engines read); hide them here since Radix only does
+        // that itself for panels it unmounts.
+        props.forceMount && "data-closed:hidden"
+      )}
       {...props}
     >
       <div

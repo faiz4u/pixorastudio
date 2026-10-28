@@ -1,5 +1,7 @@
 import { getCapabilities, getSiteSettings } from "@/lib/content/get-site-content";
+import Link from "next/link";
 import { Reveal } from "@/components/marketing/reveal";
+import { getServiceForCapability, servicePath } from "@/lib/content/services";
 
 export async function CapabilitiesSection() {
   const [allCapabilities, settings] = await Promise.all([getCapabilities(), getSiteSettings()]);
@@ -19,7 +21,7 @@ export async function CapabilitiesSection() {
         <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-center">
           <Reveal direction="left">
             <div>
-              <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">
+              <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand-text">
                 02 &mdash; Capabilities
               </p>
               <h2 className="max-w-xl font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">
@@ -35,10 +37,11 @@ export async function CapabilitiesSection() {
         </div>
 
         <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-          {capabilities.map((capability, index) => (
-            <Reveal key={capability.id} delay={index * 80} className="h-full">
+          {capabilities.map((capability, index) => {
+            const service = getServiceForCapability(capability.title);
+            const card = (
               <div className="group flex h-full min-h-[220px] flex-col gap-3 bg-background p-8 transition-colors hover:bg-brand">
-                <span className="text-base font-bold text-brand transition-colors group-hover:text-white">
+                <span className="text-base font-bold text-brand-text transition-colors group-hover:text-white">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <div>
@@ -48,9 +51,32 @@ export async function CapabilitiesSection() {
                   </p>
                 </div>
               </div>
-            </Reveal>
-          ))}
+            );
+
+            return (
+              <Reveal key={capability.id} delay={index * 80} className="h-full">
+                {/* Cards link to their service page when one exists, so the
+                    homepage passes authority to every service URL. */}
+                {service ? (
+                  <Link href={servicePath(service.slug)} className="block h-full">
+                    {card}
+                  </Link>
+                ) : (
+                  card
+                )}
+              </Reveal>
+            );
+          })}
         </div>
+
+        <Reveal className="mt-10 flex justify-center">
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 rounded-full border-2 border-white px-8 py-4 text-sm font-semibold transition-all duration-300 hover:scale-[1.03] hover:border-brand active:scale-[0.97]"
+          >
+            All design services <span aria-hidden>&rarr;</span>
+          </Link>
+        </Reveal>
       </div>
     </section>
   );

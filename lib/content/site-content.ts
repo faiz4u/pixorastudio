@@ -14,7 +14,8 @@ import type { PortfolioCategory } from "@/types/database";
 
 export const SITE_SETTINGS_SEED = {
   hero_eyebrow: "Research · Strategy · Design",
-  hero_heading: "Bihar's 1st Research-Driven Design Studio.",
+  // "in Patna" puts the location in the page's only H1 (SEO report, section 7).
+  hero_heading: "Bihar's 1st Research-Driven Design Studio, in Patna.",
   hero_subheading:
     "We turn research, strategy and design into meaningful digital experiences. Helping businesses, organizations and people move forward.",
   hero_cta_primary_label: "Get in Touch",

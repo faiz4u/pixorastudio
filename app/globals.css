@@ -15,6 +15,7 @@
   --color-brand-deep: var(--brand-deep);
   --color-brand-hover: var(--brand-hover);
   --color-brand-soft: var(--brand-soft);
+  --color-brand-text: var(--brand-text);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -101,6 +102,9 @@
   --brand-deep: #461e9b;
   --brand-hover: #6433cc;
   --brand-soft: #b19bdb;
+  /* Brand purple lifted to 5.3:1 on --background for small text (eyebrows,
+     labels, dates); --brand itself is 3.3:1, below WCAG AA for text this size. */
+  --brand-text: #9677ea;
 }
 
 .dark {
@@ -140,6 +144,9 @@
   --brand-deep: #461e9b;
   --brand-hover: #6433cc;
   --brand-soft: #b19bdb;
+  /* Brand purple lifted to 5.3:1 on --background for small text (eyebrows,
+     labels, dates); --brand itself is 3.3:1, below WCAG AA for text this size. */
+  --brand-text: #9677ea;
 }
 
 @layer base {
@@ -212,6 +219,31 @@
     animation: float-y 6s ease-in-out infinite;
   }
 
+  /* CSS-only version of <Reveal> for above-the-fold content (see
+     components/marketing/enter.tsx): it starts on first paint instead of
+     waiting for hydration, so the hero heading isn't held back from LCP. */
+  @keyframes enter-up {
+    from {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+  }
+  .animate-enter {
+    animation: enter-up 0.7s ease-out both;
+  }
+
+  /* Slide without the fade, for the page's H1: Chrome ignores opacity-0
+     elements as LCP candidates, so a fading heading would hand LCP to a
+     later-painting element (the header logo) instead. */
+  @keyframes enter-rise {
+    from {
+      transform: translateY(2rem);
+    }
+  }
+  .animate-enter-rise {
+    animation: enter-rise 0.7s ease-out both;
+  }
+
   .link-underline {
     position: relative;
   }
@@ -232,7 +264,9 @@
   @media (prefers-reduced-motion: reduce) {
     .animate-marquee,
     .animate-hero-zoom,
-    .animate-float {
+    .animate-float,
+    .animate-enter,
+    .animate-enter-rise {
       animation: none;
     }
     .link-underline::after {

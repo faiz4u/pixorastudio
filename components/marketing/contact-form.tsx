@@ -1,9 +1,11 @@
 "use client";
 
 import { useActionState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
+import { trackEvent } from "@/components/analytics";
 import { ConsentCheckbox } from "@/components/marketing/consent-checkbox";
 import { submitLead, type LeadActionState } from "@/lib/actions/leads";
-import { PROJECT_TYPE_OPTIONS, BUDGET_RANGE_OPTIONS } from "@/lib/validation/lead";
+import { PROJECT_TYPE_OPTIONS, BUDGET_RANGE_OPTIONS } from "@/lib/validation/lead-options";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -26,6 +28,15 @@ export function ContactForm() {
   useEffect(() => {
     if (formRenderedAtRef.current) formRenderedAtRef.current.value = String(Date.now());
   }, []);
+
+  // A dedicated thank-you page gives analytics a clear conversion and tells
+  // the visitor what happens next (SEO report, section 11).
+  const router = useRouter();
+  useEffect(() => {
+    if (state.status !== "success") return;
+    trackEvent("form_submit", { page_path: window.location.pathname });
+    router.push("/thank-you");
+  }, [state, router]);
 
   return (
     <form

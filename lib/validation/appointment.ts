@@ -1,16 +1,9 @@
 import { z } from "zod";
 import { honeypotField, formRenderedAtField } from "@/lib/validation/spam";
 import { consentField } from "@/lib/validation/consent";
+import { TIME_SLOTS } from "@/lib/validation/appointment-options";
 
-export const TIME_SLOTS = ["morning", "afternoon", "evening"] as const;
-
-// Matches the default working hours (Mon-Sat, 10:00-18:00 IST) split into
-// three two/three-hour windows.
-export const TIME_SLOT_LABELS: Record<(typeof TIME_SLOTS)[number], string> = {
-  morning: "10:00 AM – 12:00 PM IST",
-  afternoon: "12:00 PM – 3:00 PM IST",
-  evening: "3:00 PM – 6:00 PM IST",
-};
+export { TIME_SLOTS, TIME_SLOT_LABELS } from "@/lib/validation/appointment-options";
 
 function isTodayOrLater(value: string) {
   const picked = new Date(value);

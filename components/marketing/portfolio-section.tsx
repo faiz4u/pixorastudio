@@ -10,7 +10,7 @@ export async function PortfolioSection() {
     <section id="work" className="relative px-6 py-16 sm:px-10 sm:py-20 lg:px-20 lg:py-24">
       <div className="relative z-10 mx-auto max-w-7xl">
         <Reveal>
-          <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">
+          <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand-text">
             01 &mdash; Selected Work
           </p>
           <h2 className="max-w-2xl font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">

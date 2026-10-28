@@ -26,7 +26,7 @@ export default async function AdminResetPasswordPage() {
         width={180}
         height={40}
         className="h-[40px] w-[180px]"
-        priority
+        preload
       />
       <div className="w-full max-w-sm rounded-2xl border border-border bg-card p-8">
         <h1 className="mb-2 text-lg font-semibold">Set a new password</h1>

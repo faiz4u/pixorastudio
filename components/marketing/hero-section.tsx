@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { getSiteSettings } from "@/lib/content/get-site-content";
-import { Reveal } from "@/components/marketing/reveal";
+import { Enter } from "@/components/marketing/enter";
 
 /** Splits "Bihar's 1st Research-Driven Design Studio." so "1st Research-Driven"
  * (a leading number token and any hyphenated compound word) renders in the
@@ -39,26 +39,28 @@ export async function HeroSection() {
         src="/hero-bg.png"
         alt=""
         fill
-        priority
+        // Hidden below sm, so no preload (it would download on phones too);
+        // high fetch priority still makes it the first image on desktop.
+        fetchPriority="high"
         className="-z-20 hidden animate-hero-zoom object-cover object-right sm:block"
       />
 
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="max-w-2xl">
-          <Reveal delay={0}>
-            <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">
+          <Enter delay={0}>
+            <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand-text">
               {settings.hero_eyebrow}
             </p>
-          </Reveal>
-          <Reveal delay={100}>
+          </Enter>
+          <Enter delay={100} fade={false}>
             <HeroHeading heading={settings.hero_heading} />
-          </Reveal>
-          <Reveal delay={220}>
+          </Enter>
+          <Enter delay={220}>
             <p className="mt-6 max-w-xl font-label text-base font-light leading-relaxed text-muted-foreground">
               {settings.hero_subheading}
             </p>
-          </Reveal>
-          <Reveal delay={340}>
+          </Enter>
+          <Enter delay={340}>
             <div className="mt-9 flex flex-wrap gap-4">
               <a
                 href={settings.hero_cta_primary_href}
@@ -73,7 +75,7 @@ export async function HeroSection() {
                 {settings.hero_cta_secondary_label} <span aria-hidden> &#8599;</span>
               </a>
             </div>
-          </Reveal>
+          </Enter>
         </div>
       </div>
     </section>

@@ -3,7 +3,7 @@ import { ContactForm } from "@/components/marketing/contact-form";
 import { Reveal } from "@/components/marketing/reveal";
 import { BookAppointmentModal } from "@/components/marketing/book-appointment-modal";
 
-export async function ContactSection() {
+export async function ContactSection({ eyebrow = "04 — Start a Project" }: { eyebrow?: string }) {
   const settings = await getSiteSettings();
 
   return (
@@ -11,8 +11,8 @@ export async function ContactSection() {
       <div className="mx-auto grid max-w-7xl items-stretch gap-14 lg:grid-cols-2">
         <Reveal direction="left">
           <div>
-            <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">
-              04 &mdash; Start a Project
+            <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand-text">
+              {eyebrow}
             </p>
             <h2 className="max-w-md font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">
               {settings.contact_heading}

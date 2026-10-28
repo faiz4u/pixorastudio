@@ -2,12 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getSiteSettings } from "@/lib/content/get-site-content";
 import { LEGAL, legalPlace, legalStudioIdentity } from "@/lib/content/legal";
+import { pageMetadata } from "@/lib/seo";
 import { LegalPage, type LegalSection } from "@/components/marketing/legal-page";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: `How ${LEGAL.studioName} collects, uses and protects personal data under India's Digital Personal Data Protection Act, 2023.`,
-  alternates: { canonical: "/privacy-policy" },
+  ...pageMetadata({
+    title: "Privacy Policy",
+    description: `How ${LEGAL.studioName} collects, uses and protects personal data under India's Digital Personal Data Protection Act, 2023.`,
+    path: "/privacy-policy",
+  }),
 };
 
 export default async function PrivacyPolicyPage() {

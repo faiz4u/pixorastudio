@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { createClient } from "@/lib/supabase/server";
 import { getPublicStorageUrl } from "@/lib/supabase/storage";
 import type { PortfolioCategory } from "@/types/database";
@@ -16,15 +17,18 @@ import {
  * if the table is missing/empty (e.g. migrations not applied yet, or a fresh
  * checkout) so the public site always renders something reasonable instead
  * of a broken/empty section.
+ *
+ * Each getter is wrapped in React cache(), so the many sections that read
+ * the same row (site settings, logo) share one query per request.
  */
 
-export async function getSiteSettings() {
+export const getSiteSettings = cache(async () => {
   const supabase = await createClient();
   const { data } = await supabase.from("site_settings").select("*").eq("id", 1).maybeSingle();
   return data ?? SITE_SETTINGS_SEED;
-}
+});
 
-export async function getWhyPrinciples() {
+export const getWhyPrinciples = cache(async () => {
   const supabase = await createClient();
   const { data } = await supabase
     .from("why_principles")
@@ -37,9 +41,9 @@ export async function getWhyPrinciples() {
     display_order: index,
     ...item,
   }));
-}
+});
 
-export async function getCapabilities() {
+export const getCapabilities = cache(async () => {
   const supabase = await createClient();
   const { data } = await supabase
     .from("capabilities")
@@ -52,9 +56,9 @@ export async function getCapabilities() {
     display_order: index,
     ...item,
   }));
-}
+});
 
-export async function getProcessSteps() {
+export const getProcessSteps = cache(async () => {
   const supabase = await createClient();
   const { data } = await supabase
     .from("process_steps")
@@ -67,9 +71,9 @@ export async function getProcessSteps() {
     display_order: index,
     ...item,
   }));
-}
+});
 
-export async function getFaqItems() {
+export const getFaqItems = cache(async () => {
   const supabase = await createClient();
   const { data } = await supabase
     .from("faq_items")
@@ -78,7 +82,7 @@ export async function getFaqItems() {
 
   if (data && data.length > 0) return data;
   return FAQ_SEED.map((item, index) => ({ id: `seed-${index}`, display_order: index, ...item }));
-}
+});
 
 export type PortfolioCard = {
   id: string;
@@ -91,7 +95,7 @@ export type PortfolioCard = {
   coverImageUrl: string;
 };
 
-export async function getPortfolio(): Promise<PortfolioCard[]> {
+export const getPortfolio = cache(async (): Promise<PortfolioCard[]> => {
   const supabase = await createClient();
   const { data } = await supabase
     .from("portfolio_projects")
@@ -124,9 +128,9 @@ export async function getPortfolio(): Promise<PortfolioCard[]> {
     projectUrl: null,
     coverImageUrl: project.localCoverImage,
   }));
-}
+});
 
-export async function getSiteImage(slot: keyof typeof SITE_IMAGES_SEED) {
+export const getSiteImage = cache(async (slot: keyof typeof SITE_IMAGES_SEED) => {
   const supabase = await createClient();
   const { data } = await supabase.from("site_images").select("*").eq("slot", slot).maybeSingle();
 
@@ -136,4 +140,4 @@ export async function getSiteImage(slot: keyof typeof SITE_IMAGES_SEED) {
 
   const fallback = SITE_IMAGES_SEED[slot];
   return { url: fallback.localPath, alt: fallback.alt };
-}
+});
