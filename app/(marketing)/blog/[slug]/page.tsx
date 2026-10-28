@@ -16,7 +16,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps<"/blog/[slug]">): Promise<Metadata> {
   const post = getPost((await params).slug);
-  if (!post) return {};
+  if (!post) return { title: "Page not found" };
   const metadata = pageMetadata({
     title: post.title,
     description: post.description,

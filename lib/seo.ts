@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { env } from "@/lib/env";
 import { SERVICES, servicePath, type Service } from "@/lib/content/services";
+import { ABOUT } from "@/lib/content/about";
 
 /**
  * Search-facing copy and structured-data helpers, following the SEO strategy
@@ -88,7 +89,9 @@ type StudioDetails = {
 
 /** ProfessionalService (a LocalBusiness subtype) for the homepage. */
 export function professionalServiceJsonLd(settings: StudioDetails, logoUrl: string) {
-  const sameAs = [settings.social_instagram, settings.social_linkedin].filter(Boolean);
+  const sameAs = [settings.social_instagram, settings.social_linkedin, ABOUT.googleBusinessProfile].filter(
+    Boolean,
+  );
 
   return {
     "@context": "https://schema.org",

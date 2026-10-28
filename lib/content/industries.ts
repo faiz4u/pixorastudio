@@ -174,7 +174,159 @@ export const INDUSTRIES: Industry[] = [
           "Yes. We design prospectuses, brochures, forms and admission campaign creatives, consistent with your brand and website.",
       },
     ],
-    posts: ["what-is-brand-identity", "why-research-comes-before-design"],
+    posts: ["what-is-brand-identity", "how-to-choose-a-design-agency-in-patna"],
+  },
+  {
+    slug: "real-estate",
+    name: "Real Estate",
+    singular: "real-estate business",
+    title: "Real Estate Branding in Patna",
+    description:
+      "Project branding, brochures, hoardings, social creatives and websites for builders and real-estate firms in Patna and Bihar.",
+    h1: "Real Estate Branding and Brochure Design in Patna",
+    intro: [
+      "Buying a home is the largest purchase most families make, and they often decide before a project is finished. That means your brochure, hoardings and website have to do the job a finished building would: make the project feel real, trustworthy and worth the price.",
+      "We design brands and sales material for builders, developers and real-estate firms in Patna and across Bihar, starting with research into who the project is for and what they need to be convinced of.",
+    ],
+    challenges: [
+      {
+        title: "Selling something that isn't built yet",
+        description:
+          "Buyers need to picture the finished home. Clear floor plans, honest renders and a well-structured brochure do more than a page of adjectives.",
+      },
+      {
+        title: "Every project needs its own identity",
+        description:
+          "Each project competes with others nearby, so it needs a name, look and story of its own, while still carrying the developer's reputation.",
+      },
+      {
+        title: "Trust is the real sale",
+        description:
+          "Families want to know the builder will deliver. Track record, approvals and completed projects need to be easy to find, not buried on the last page.",
+      },
+      {
+        title: "Many formats at once",
+        description:
+          "A launch needs brochures, hoardings, site banners, social ads, WhatsApp creatives and a website, all consistent and all ready on the same day.",
+      },
+    ],
+    offerings: [
+      {
+        service: "logo-brand-identity-design-patna",
+        description: "Developer brands and individual project identities: name lock-ups, logos, palettes and guidelines.",
+      },
+      {
+        service: "graphic-design-patna",
+        description: "Project brochures with floor plans and specifications, hoardings, site banners and standees.",
+      },
+      {
+        service: "social-media-design-patna",
+        description: "Launch campaigns, ad creatives and WhatsApp-ready creatives for site visits and offers.",
+      },
+      {
+        service: "website-design-patna",
+        description: "Project microsites and developer websites with plans, amenities, location and an enquiry form.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Can you design a brochure before the renders are ready?",
+        answer:
+          "We can start on the structure, copy hierarchy and design system while renders are in progress, and drop them in once they're final, so the launch isn't delayed.",
+      },
+      {
+        question: "Do you create a separate identity for each project?",
+        answer:
+          "Yes, if the project needs to stand on its own in the market. We keep a consistent link to the developer's brand so buyers know who is behind it.",
+      },
+      {
+        question: "Can you make WhatsApp versions of the brochure?",
+        answer:
+          "Yes. Every printed piece comes with a lighter digital version for sharing on WhatsApp and social media.",
+      },
+      {
+        question: "Do you work on hoardings and site branding?",
+        answer:
+          "Yes. We design hoardings, site barricade graphics, banners and standees, and deliver print-ready files in the sizes your vendor needs.",
+      },
+    ],
+    posts: ["what-is-brand-identity", "how-to-choose-a-design-agency-in-patna"],
+  },
+  {
+    slug: "healthcare",
+    name: "Clinics & Hospitals",
+    singular: "clinic",
+    title: "Clinic and Hospital Branding in Patna",
+    description:
+      "Branding, signage, patient information, social media and websites for clinics, diagnostic centres and hospitals in Patna and Bihar.",
+    h1: "Clinic and Hospital Branding in Patna",
+    intro: [
+      "Patients choose a clinic or hospital on trust. Before they walk in, they look at the signboard, ask around, check Google and often visit the website or Instagram page. Each of those either reassures them or raises a doubt.",
+      "We design calm, clear brands and patient-facing material for clinics, diagnostic centres and hospitals in Patna and across Bihar, built on research into what patients and their families need to know.",
+    ],
+    challenges: [
+      {
+        title: "Looking trustworthy without looking cold",
+        description:
+          "Healthcare brands need to feel professional and safe, but also approachable. The right balance of colour, type and tone makes a real difference.",
+      },
+      {
+        title: "Information patients can actually use",
+        description:
+          "Timings, doctors, specialities, tests and preparation instructions are often scattered or hard to read. Clear design reduces calls and confusion at the front desk.",
+      },
+      {
+        title: "Finding your way around",
+        description:
+          "In a busy clinic or hospital, good signage and wayfinding make people less anxious and help staff work more smoothly.",
+      },
+      {
+        title: "Communicating responsibly",
+        description:
+          "Health communication should inform, not overpromise. Designs need to stay clear, accurate and respectful of patients' privacy.",
+      },
+    ],
+    offerings: [
+      {
+        service: "logo-brand-identity-design-patna",
+        description: "A logo and identity system for signage, prescriptions, reports, uniforms and stationery.",
+      },
+      {
+        service: "graphic-design-patna",
+        description: "Patient information leaflets, test preparation guides, signage, wayfinding and health camp material.",
+      },
+      {
+        service: "website-design-patna",
+        description: "A website with doctors, specialities, timings, test information and a booking or WhatsApp enquiry flow.",
+      },
+      {
+        service: "social-media-design-patna",
+        description: "Templates for health awareness posts, doctor introductions, camp announcements and timings.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Can you design a report and prescription template too?",
+        answer:
+          "Yes. We design prescription pads, report templates, letterheads and other documents so every piece a patient takes home carries your brand.",
+      },
+      {
+        question: "Can patients book appointments through the website?",
+        answer:
+          "We design the booking or enquiry flow, whether that's a form, a WhatsApp link or an integration with the system you already use, and hand it over to your developer.",
+      },
+      {
+        question: "Do you design signage for the building?",
+        answer:
+          "Yes. We design external signboards and internal wayfinding, and deliver files your signage vendor can produce.",
+      },
+      {
+        question: "Do you write the medical content?",
+        answer:
+          "No. Medical information should come from your doctors. We structure and design it so it is easy for patients to read.",
+      },
+    ],
+    posts: ["what-is-brand-identity", "how-to-choose-a-design-agency-in-patna"],
   },
 ];
 

@@ -272,6 +272,218 @@ export const BLOG_POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "how-to-choose-a-design-agency-in-patna",
+    title: "How to Choose a Design Agency in Patna: 10 Questions",
+    description:
+      "Ten questions to ask before hiring a design agency or freelancer in Patna, and what good answers sound like.",
+    date: "2026-10-28",
+    service: "logo-brand-identity-design-patna",
+    body: [
+      {
+        type: "p",
+        text: "Patna has no shortage of designers, from freelancers and print shops to digital marketing agencies and design studios. Prices and quality vary widely, and it is hard to compare them from portfolios alone. These ten questions will help you find out how a designer actually works before you commit.",
+      },
+      { type: "h2", text: "1. Can I see work similar to what I need?" },
+      {
+        type: "p",
+        text: "A good portfolio shows range, but what matters is relevant experience. If you need a website, look for websites; if you run a coaching institute, ask whether they have worked with education brands. Ask what the client's goal was, not just how it looks.",
+      },
+      { type: "h2", text: "2. What happens before you start designing?" },
+      {
+        type: "p",
+        text: "This is the most revealing question. If the answer is 'we will send three logo options in two days', the design will be based on guesswork. Look for a process that starts with understanding your business, customers and competitors.",
+      },
+      { type: "h2", text: "3. Is the price fixed, and what exactly does it include?" },
+      {
+        type: "p",
+        text: "Ask for a written scope: deliverables, number of concepts, rounds of changes, file formats and timelines. A fixed quote protects you from surprise bills. Be careful of very low prices that leave out things you will need later, such as source files or social media versions.",
+      },
+      { type: "h2", text: "4. Who will actually work on my project?" },
+      {
+        type: "p",
+        text: "Some agencies pitch with senior people and hand the work to someone else. Ask who your day-to-day contact will be and who will do the design.",
+      },
+      { type: "h2", text: "5. How long will it take?" },
+      {
+        type: "p",
+        text: "Realistic timelines are a sign of a real process. A complete brand identity usually takes a few weeks, not a few days. If you have a deadline, such as an admission season or a launch, say so up front.",
+      },
+      { type: "h2", text: "6. How do changes and feedback work?" },
+      {
+        type: "p",
+        text: "Ask how many rounds of revisions are included and what happens if you need more. Clear feedback rounds keep a project moving and avoid disagreements later.",
+      },
+      { type: "h2", text: "7. Will I own the final files?" },
+      {
+        type: "p",
+        text: "You should receive the source files, not just JPEGs, and full ownership of the work you paid for. Otherwise you may have to go back to the same designer every time you need a small change.",
+      },
+      { type: "h2", text: "8. What do I need to provide?" },
+      {
+        type: "p",
+        text: "Good designers will tell you what they need from you: content, photos, access to existing files, time for feedback. A project slows down most often because inputs arrive late, so it helps to know early.",
+      },
+      { type: "h2", text: "9. How do payments work?" },
+      {
+        type: "p",
+        text: "An advance followed by a balance on delivery is common. Make sure the payment milestones match the deliverables, and get them in writing.",
+      },
+      { type: "h2", text: "10. Can I talk to a past client?" },
+      {
+        type: "p",
+        text: "Reviews on Google and a conversation with a previous client tell you more than any pitch. Ask how the project went, whether deadlines were met and whether they would hire the designer again.",
+      },
+      { type: "h2", text: "Freelancer, agency or studio?" },
+      {
+        type: "ul",
+        items: [
+          "Freelancers can be affordable and flexible, and work well for small, clearly defined tasks.",
+          "Digital marketing agencies are useful when you need ads, SEO and social media management together, but design may be one service among many.",
+          "Design studios focus on design itself: brand identity, websites and products, usually with a more structured process.",
+        ],
+      },
+      {
+        type: "p",
+        text: "The right choice depends on what you need. Whoever you choose, these ten questions will show you how they work before you have spent anything.",
+      },
+    ],
+  },
+  {
+    slug: "how-to-build-an-investor-pitch-deck",
+    title: "How to Build an Investor Pitch Deck, Slide by Slide",
+    description:
+      "A slide-by-slide structure for an investor pitch deck, with what each slide needs to say and common mistakes to avoid.",
+    date: "2026-10-28",
+    service: "pitch-deck-design",
+    body: [
+      {
+        type: "p",
+        text: "An investor pitch deck has one job: to make someone want a second conversation. It does not need to explain everything about your company. It needs to tell a clear, credible story quickly. Here is a structure that works for most early-stage startups, slide by slide.",
+      },
+      { type: "h2", text: "The core slides" },
+      {
+        type: "ol",
+        items: [
+          "Title: company name, a one-line description of what you do, and your contact details.",
+          "Problem: who has the problem, how painful it is and how they deal with it today. Make it specific.",
+          "Solution: what you have built and how it solves the problem. Show the product, don't just describe it.",
+          "Why now: what has changed (technology, regulation, behaviour) that makes this the right moment.",
+          "Market: the size of the opportunity, built from realistic numbers you can explain, not just a large top-down figure.",
+          "Business model: how you make money, pricing and the economics of a single customer.",
+          "Traction: users, revenue, growth, pilots or letters of intent. Whatever proof you have, put it here.",
+          "Competition: who else solves this problem and why you win. Avoid claiming you have no competitors.",
+          "Go-to-market: how you will reach customers, and what has worked so far.",
+          "Team: why this team is the right one to build this company.",
+          "Financials: a simple view of where you are and where you are going over the next few years.",
+          "The ask: how much you are raising, what it will achieve and the milestones it gets you to.",
+        ],
+      },
+      { type: "h2", text: "Two versions of the same deck" },
+      {
+        type: "p",
+        text: "You usually need two versions. The presenting version is visual, with few words per slide, because you are there to explain it. The send-ahead version is read without you, so it needs enough text to stand on its own. Trying to make one deck do both jobs usually produces a deck that does neither well.",
+      },
+      { type: "h2", text: "Design principles that help" },
+      {
+        type: "ul",
+        items: [
+          "One idea per slide, stated in the slide title as a sentence, not a label.",
+          "Charts that make one point clearly, with the important number highlighted.",
+          "Real product screenshots instead of generic stock imagery.",
+          "Consistent fonts, colours and layouts so nothing distracts from the story.",
+          "Around 10 to 15 slides for the main deck, with detail moved to an appendix.",
+        ],
+      },
+      { type: "h2", text: "Common mistakes" },
+      {
+        type: "ul",
+        items: [
+          "Spending three slides on the market and none on traction.",
+          "Walls of text that the audience reads instead of listening.",
+          "Unexplained jargon and acronyms.",
+          "Numbers that don't add up between slides.",
+          "Leaving the ask vague, or out entirely.",
+        ],
+      },
+      { type: "h2", text: "Start with the story" },
+      {
+        type: "p",
+        text: "Before opening any slide software, write the story as a few paragraphs: the problem, why it matters, what you do, the proof it works and what you need. If that story is clear, the slides follow naturally. If it isn't, no amount of design will fix it.",
+      },
+    ],
+  },
+  {
+    slug: "business-ke-liye-logo-kaise-banwaye",
+    title: "Business ke liye Logo kaise banwaye: Simple Checklist",
+    description:
+      "Apne business ke liye professional logo banwane ka simple checklist, Hinglish mein: tayyari, designer se kya poochein, aur kya files lein.",
+    date: "2026-10-28",
+    service: "logo-brand-identity-design-patna",
+    body: [
+      {
+        type: "p",
+        text: "Naya business shuru kar rahe hain ya purana logo badalna chahte hain? Logo aapke business ki pehchaan hai: signboard, visiting card, WhatsApp DP, Instagram aur bill, sab par yahi dikhega. Isliye jaldi mein banwane se pehle yeh checklist zaroor dekh lijiye.",
+      },
+      { type: "h2", text: "1. Pehle apne business ko samjhiye" },
+      {
+        type: "ul",
+        items: [
+          "Aapke customer kaun hain? Students, parents, families, ya doosre businesses?",
+          "Aap apne competitors se alag kaise hain? Ek line mein likhiye.",
+          "Aap chahte hain ki log aapke baare mein kya mehsoos karein: bharosa, premium, friendly, ya modern?",
+        ],
+      },
+      { type: "h2", text: "2. Competitors ko dekhiye" },
+      {
+        type: "p",
+        text: "Apne area ke 5 se 10 competitors ke logo aur signboard dekhiye. Agar sab ek hi rang aur style use kar rahe hain, toh aapke paas alag dikhne ka mauka hai. Logo ka kaam bheed mein pehchaan banana hai, unke jaisa dikhna nahi.",
+      },
+      { type: "h2", text: "3. Designer se yeh sawaal poochiye" },
+      {
+        type: "ul",
+        items: [
+          "Design shuru karne se pehle aap mere business ke baare mein kya samjhenge?",
+          "Price fixed hai? Usme kitne concepts aur kitne changes shamil hain?",
+          "Mujhe kaun si files milengi, aur kya source files bhi milengi?",
+          "Logo ke saath colours aur fonts ki guideline bhi milegi?",
+          "Kitna time lagega?",
+        ],
+      },
+      { type: "h2", text: "4. Achhe logo ki pehchaan" },
+      {
+        type: "ul",
+        items: [
+          "Simple ho, taaki chhote size mein bhi saaf dikhe, jaise WhatsApp DP ya favicon.",
+          "Black and white mein bhi achha lage, kyunki har jagah colour print nahi hota.",
+          "Signboard se lekar visiting card tak, har size par kaam kare.",
+          "Trend ke peeche na bhaage, taaki kuch saal baad purana na lage.",
+          "Kisi aur ke logo jaisa na ho.",
+        ],
+      },
+      { type: "h2", text: "5. Yeh files zaroor lijiye" },
+      {
+        type: "ul",
+        items: [
+          "Source file (AI, SVG ya PDF) taaki baad mein koi bhi designer kaam kar sake.",
+          "PNG files transparent background ke saath, web aur social media ke liye.",
+          "Colour codes (print ke liye CMYK, screen ke liye RGB/HEX).",
+          "Font ke naam aur use karne ke rules.",
+          "Ek chhoti brand guideline ki logo kaise use karna hai aur kaise nahi.",
+        ],
+      },
+      { type: "h2", text: "6. Logo ke baad kya?" },
+      {
+        type: "p",
+        text: "Sirf logo kaafi nahi hota. Visiting card, letterhead, social media templates aur signboard ek jaise dikhenge tabhi customer ke mann mein aapki pehchaan banegi. Isko brand identity kehte hain, aur yahi aapke business ko bada aur bharosemand dikhata hai.",
+      },
+      { type: "h2", text: "Short mein" },
+      {
+        type: "p",
+        text: "Jaldi aur sasta logo baad mein mehenga padta hai jab har jagah alag-alag version dikhne lagte hain. Thoda time research aur sahi designer chunne mein lagaiye, aur saari files apne paas rakhiye.",
+      },
+    ],
+  },
 ];
 
 export function getPost(slug: string) {

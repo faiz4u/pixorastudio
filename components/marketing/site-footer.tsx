@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Phone, Mail, ArrowUpRight } from "lucide-react";
 import { getSiteSettings, getSiteImage } from "@/lib/content/get-site-content";
 import { SERVICES, servicePath } from "@/lib/content/services";
+import { ABOUT } from "@/lib/content/about";
 import { telUrl, whatsappUrl } from "@/lib/contact";
 
 const STUDIO_LINKS = [
@@ -101,6 +102,18 @@ export async function SiteFooter() {
                 WhatsApp <ArrowUpRight className="size-3.5" />
               </a>
             </li>
+            {ABOUT.googleBusinessProfile && (
+              <li>
+                <a
+                  href={ABOUT.googleBusinessProfile}
+                  target="_blank"
+                  rel="noopener"
+                  className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
+                >
+                  Find us on Google <ArrowUpRight className="size-3.5" />
+                </a>
+              </li>
+            )}
           </ul>
         </div>
 

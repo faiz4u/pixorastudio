@@ -100,8 +100,9 @@ From the report's sections 8, 12 and 13. These drive local rankings more than an
 
 - [ ] **Google Business Profile.** Exact name "Pixora Studio". Category: Graphic designer / Design agency.
   Set it up as a service-area business (Patna + Bihar), with phone +91-8083019809, website, hours Mon–Sat
-  10:00–18:00, WhatsApp link, all services, 10+ real photos. Post weekly and seed the Q&A from the FAQs. Link
-  it from the site once it's live (ask for a "Find us on Google" link plus a `sameAs` entry).
+  10:00–18:00, WhatsApp link, all services, 10+ real photos. Post weekly and seed the Q&A from the FAQs. Once
+  it's live, paste its share link into `googleBusinessProfile` in `lib/content/about.ts`. That adds a "Find us
+  on Google" footer link and the homepage structured-data `sameAs` entry automatically.
 - [ ] **Reviews.** Aim for 10 genuine Google reviews in 60 days. Ask at delivery (template in the report,
   Appendix B). Never buy or gate reviews.
 - [ ] **Citations, with the same name, phone and website everywhere.** Justdial, Sulekha, IndiaMART, Bing
@@ -115,17 +116,25 @@ From the report's sections 8, 12 and 13. These drive local rankings more than an
 
 ## 6. Content calendar (ongoing)
 
-Four posts are live: research process, what is brand identity, UI vs UX, coaching institute checklist. Add
-the rest of the report's 12-week calendar to `lib/content/blog.ts`. Each new entry is picked up by `/blog`
-and the sitemap automatically.
+Seven posts are live:
+- Research process
+- What is brand identity
+- UI vs UX
+- Coaching institute checklist
+- How to choose a design agency
+- Investor pitch deck, slide by slide
+- Business ke liye logo kaise banwaye (Hinglish)
 
+Four industry pages are live: coaching institutes, schools, real estate, healthcare. Each new entry in
+`lib/content/blog.ts` or `lib/content/industries.ts` is picked up by its index page and the sitemap
+automatically.
+
+- [ ] **Review the new copy.** Three posts and two industry pages were added in phase 4. Read them through
+  like the earlier drafts. The Hinglish post especially should sound like how you talk to clients.
 - [ ] Logo design cost in India (pricing guide). Needs your real price ranges.
 - [ ] Website design cost in Patna (pricing guide). Needs your real price ranges.
-- [ ] How to choose a design agency in Patna: 10 questions to ask
-- [ ] How to build an investor pitch deck, slide by slide
-- [ ] Behind the scenes: the Pixora Studio brand identity (case study)
-- [ ] Business ke liye logo kaise banwaye (Hinglish checklist)
-- [ ] More industry pages (`lib/content/industries.ts`): real estate, healthcare. Only add them with copy
-  written specifically for each, never near-duplicates.
+- [ ] Behind the scenes: the Pixora Studio brand identity (case study). Needs your own process and sketches.
+- [ ] Add local client examples to the industry pages as soon as you have them. Don't add more city or
+  industry pages without copy written specifically for each.
 - [ ] Month 3: review Search Console. Improve pages with many impressions but few clicks (titles and
   descriptions first).

@@ -24,7 +24,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps<"/work/[slug]">): Promise<Metadata> {
   const study = getCaseStudy((await params).slug);
-  if (!study || !isCaseStudyVisible(study)) return {};
+  if (!study || !isCaseStudyVisible(study)) return { title: "Page not found" };
   return {
     ...pageMetadata({ title: study.title, description: study.description, path: caseStudyPath(study.slug) }),
     ...(!study.published && { robots: { index: false, follow: false } }),

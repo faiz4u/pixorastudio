@@ -16,6 +16,12 @@ export const ABOUT = {
     /** Optional LinkedIn profile URL. */
     linkedin: "",
   },
+  /**
+   * Google Business Profile link (the "Share" link from the profile, e.g.
+   * https://maps.app.goo.gl/...). When set, it's shown in the footer and
+   * added to the homepage structured data's sameAs.
+   */
+  googleBusinessProfile: "",
   /** Year the studio was founded, e.g. "2024". Hidden while empty. */
   foundedYear: "",
   /**
