@@ -26,6 +26,7 @@ export const PROJECT_TYPE_OPTIONS = [
   "Presentation Design",
   "UI/UX Design",
   "Product Design",
+  "Website Design",
 ] as const;
 
 export const BUDGET_RANGE_OPTIONS = [

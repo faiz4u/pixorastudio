@@ -2,12 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getSiteSettings } from "@/lib/content/get-site-content";
 import { LEGAL, legalPlace, legalStudioIdentity } from "@/lib/content/legal";
+import { pageMetadata } from "@/lib/seo";
 import { LegalPage, type LegalSection } from "@/components/marketing/legal-page";
 
 export const metadata: Metadata = {
-  title: "Terms of Use",
-  description: `The terms for using the ${LEGAL.studioName} website.`,
-  alternates: { canonical: "/terms-of-use" },
+  ...pageMetadata({
+    title: "Terms of Use",
+    description: `The terms for using the ${LEGAL.studioName} website.`,
+    path: "/terms-of-use",
+  }),
 };
 
 /**

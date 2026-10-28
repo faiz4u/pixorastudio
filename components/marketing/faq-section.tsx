@@ -6,12 +6,14 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Reveal } from "@/components/marketing/reveal";
+import { faqPageJsonLd, jsonLdScript } from "@/lib/seo";
 
 export async function FaqSection() {
   const faqs = await getFaqItems();
 
   return (
-    <section className="border-t border-border px-6 py-16 sm:px-10 sm:py-20 lg:px-20 lg:py-24">
+    <section id="faq" className="border-t border-border px-6 py-16 sm:px-10 sm:py-20 lg:px-20 lg:py-24">
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(faqPageJsonLd(faqs))} />
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_1.4fr]">
         <Reveal direction="left">
           <div>
@@ -39,7 +41,11 @@ export async function FaqSection() {
                 <AccordionTrigger className="py-7 text-left text-lg font-semibold sm:py-8 sm:text-2xl **:data-[slot=accordion-trigger-icon]:size-6">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="pb-7 text-sm leading-relaxed text-muted-foreground sm:pb-8 sm:text-base">
+                <AccordionContent
+                  // Answers stay in the server-rendered HTML even while
+                  // collapsed, so search engines can read them.
+                  forceMount
+                  className="pb-7 text-sm leading-relaxed text-muted-foreground sm:pb-8 sm:text-base">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

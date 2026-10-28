@@ -48,22 +48,31 @@ export async function SiteFooter() {
             Social Links
           </p>
           <ul className="flex flex-col gap-2 text-sm">
-            <li>
-              <a
-                href={settings.social_instagram || "#"}
-                className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
-              >
-                Instagram <ArrowUpRight className="size-3.5" />
-              </a>
-            </li>
-            <li>
-              <a
-                href={settings.social_linkedin || "#"}
-                className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
-              >
-                LinkedIn <ArrowUpRight className="size-3.5" />
-              </a>
-            </li>
+            {/* Hidden until set in admin, rather than linking to "#". */}
+            {settings.social_instagram && (
+              <li>
+                <a
+                  href={settings.social_instagram}
+                  target="_blank"
+                  rel="noopener"
+                  className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
+                >
+                  Instagram <ArrowUpRight className="size-3.5" />
+                </a>
+              </li>
+            )}
+            {settings.social_linkedin && (
+              <li>
+                <a
+                  href={settings.social_linkedin}
+                  target="_blank"
+                  rel="noopener"
+                  className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
+                >
+                  LinkedIn <ArrowUpRight className="size-3.5" />
+                </a>
+              </li>
+            )}
             <li>
               <a
                 href={`https://wa.me/${settings.contact_whatsapp.replace(/[^0-9]/g, "")}`}
