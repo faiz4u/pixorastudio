@@ -7,7 +7,7 @@ export function NotFoundContent() {
   return (
     <main className="px-6 py-20 sm:px-10 lg:px-20 lg:py-28">
       <div className="mx-auto max-w-3xl text-center">
-        <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">404</p>
+        <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand-text">404</p>
         <h1 className="font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">
           This page doesn&apos;t exist
         </h1>

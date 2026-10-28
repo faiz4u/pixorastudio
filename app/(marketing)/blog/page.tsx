@@ -38,7 +38,7 @@ export default function BlogPage() {
                 href={blogPath(post.slug)}
                 className="flex h-full flex-col gap-3 rounded-2xl border border-border bg-background p-8 transition-colors hover:border-brand"
               >
-                <time dateTime={post.date} className="font-label text-xs uppercase tracking-widest text-brand">
+                <time dateTime={post.date} className="font-label text-xs uppercase tracking-widest text-brand-text">
                   {formatPostDate(post.date)}
                 </time>
                 <h2 className="text-xl font-bold leading-snug">{post.title}</h2>

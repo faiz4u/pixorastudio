@@ -11,7 +11,7 @@ export async function ContactSection({ eyebrow = "04 — Start a Project" }: { e
       <div className="mx-auto grid max-w-7xl items-stretch gap-14 lg:grid-cols-2">
         <Reveal direction="left">
           <div>
-            <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">
+            <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand-text">
               {eyebrow}
             </p>
             <h2 className="max-w-md font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">

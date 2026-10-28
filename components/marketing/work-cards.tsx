@@ -29,7 +29,7 @@ export function WorkCards({ projects }: { projects: PortfolioCard[] }) {
               />
             </div>
             <div className="flex flex-1 flex-col gap-2 p-5">
-              <p className="font-label text-xs uppercase tracking-widest text-brand">{category}</p>
+              <p className="font-label text-xs uppercase tracking-widest text-brand-text">{category}</p>
               <h3 className="text-lg font-bold">{project.title}</h3>
               {project.description && (
                 <p className="text-sm leading-relaxed text-muted-foreground">{project.description}</p>

@@ -43,7 +43,7 @@ export default function IndustriesPage() {
               >
                 <h2 className="text-xl font-bold">{industry.name}</h2>
                 <p className="text-sm leading-relaxed text-muted-foreground">{industry.description}</p>
-                <span className="mt-auto text-sm font-semibold text-brand">
+                <span className="mt-auto text-sm font-semibold text-brand-text">
                   Learn more <span aria-hidden>&rarr;</span>
                 </span>
               </Link>

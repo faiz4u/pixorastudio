@@ -55,7 +55,8 @@ export function SiteHeader({ logo }: { logo: { url: string; alt: string } }) {
             width={260}
             height={54}
             className="h-9 w-auto object-contain object-left sm:h-[54px] sm:w-[260px]"
-            priority
+            preload
+            fetchPriority="high"
           />
         </Link>
 

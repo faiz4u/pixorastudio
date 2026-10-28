@@ -52,7 +52,8 @@ export async function savePortfolioProject(
     const path = `${parsed.data.slug}/cover-${Date.now()}.${ext}`;
     const { error: uploadError } = await supabase.storage
       .from("portfolio")
-      .upload(path, coverImage, { contentType: coverImage.type, upsert: true });
+      // Fresh path per upload, so the file is safe to cache for a year.
+      .upload(path, coverImage, { contentType: coverImage.type, cacheControl: "31536000", upsert: true });
     if (uploadError) {
       return { status: "error", message: `Image upload failed: ${uploadError.message}` };
     }

@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { Breadcrumbs, type Crumb } from "@/components/marketing/breadcrumbs";
-import { Reveal } from "@/components/marketing/reveal";
+import { Enter } from "@/components/marketing/enter";
 
 /**
  * Opening block for inner marketing pages: breadcrumbs, eyebrow, the page's
@@ -29,27 +29,27 @@ export function PageHeader({
       <div className="relative z-10 mx-auto max-w-7xl">
         <Breadcrumbs items={breadcrumbs} />
         <div className="max-w-3xl">
-          <Reveal>
-            <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">
+          <Enter>
+            <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand-text">
               {eyebrow}
             </p>
-          </Reveal>
-          <Reveal delay={100}>
+          </Enter>
+          <Enter delay={100} fade={false}>
             <h1 className="font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl xl:text-6xl">
               {title}
             </h1>
-          </Reveal>
+          </Enter>
           {children && (
-            <Reveal delay={200}>
+            <Enter delay={200}>
               <div className="mt-6 flex flex-col gap-4 text-lg leading-relaxed text-muted-foreground">
                 {children}
               </div>
-            </Reveal>
+            </Enter>
           )}
           {actions && (
-            <Reveal delay={300}>
+            <Enter delay={300}>
               <div className="mt-9 flex flex-wrap gap-4">{actions}</div>
-            </Reveal>
+            </Enter>
           )}
         </div>
       </div>
@@ -67,7 +67,7 @@ export const secondaryCta =
 export function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
   return (
     <div className="mb-10">
-      <p className="mb-4 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">{eyebrow}</p>
+      <p className="mb-4 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand-text">{eyebrow}</p>
       <h2 className="max-w-2xl font-heading text-2xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">
         {title}
       </h2>

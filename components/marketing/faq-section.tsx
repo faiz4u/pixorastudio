@@ -10,7 +10,7 @@ export async function FaqSection() {
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_1.4fr]">
         <Reveal direction="left">
           <div>
-            <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">
+            <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand-text">
               05 &mdash; FAQ
             </p>
             <h2 className="max-w-sm font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">

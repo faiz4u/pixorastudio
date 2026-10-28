@@ -21,7 +21,7 @@ export async function CapabilitiesSection() {
         <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-center">
           <Reveal direction="left">
             <div>
-              <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">
+              <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand-text">
                 02 &mdash; Capabilities
               </p>
               <h2 className="max-w-xl font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">
@@ -41,7 +41,7 @@ export async function CapabilitiesSection() {
             const service = getServiceForCapability(capability.title);
             const card = (
               <div className="group flex h-full min-h-[220px] flex-col gap-3 bg-background p-8 transition-colors hover:bg-brand">
-                <span className="text-base font-bold text-brand transition-colors group-hover:text-white">
+                <span className="text-base font-bold text-brand-text transition-colors group-hover:text-white">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <div>

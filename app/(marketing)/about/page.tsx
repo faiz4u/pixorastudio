@@ -118,7 +118,7 @@ export default async function AboutPage() {
             )}
             <Reveal direction="right" delay={100}>
               <SectionHeading eyebrow="The founder" title={founder.name} />
-              <p className="font-label text-xs uppercase tracking-widest text-brand">{founder.role}</p>
+              <p className="font-label text-xs uppercase tracking-widest text-brand-text">{founder.role}</p>
               <div className="mt-6 flex flex-col gap-4 text-lg leading-relaxed text-muted-foreground">
                 {founder.bio.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
@@ -129,7 +129,7 @@ export default async function AboutPage() {
                   href={founder.linkedin}
                   target="_blank"
                   rel="noopener"
-                  className="mt-6 inline-block text-sm font-semibold text-brand hover:underline"
+                  className="mt-6 inline-block text-sm font-semibold text-brand-text hover:underline"
                 >
                   {founder.name} on LinkedIn &#8599;
                 </a>
@@ -169,7 +169,7 @@ export default async function AboutPage() {
         <ol className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, index) => (
             <li key={step.id}>
-              <span className="text-base font-bold text-brand">{String(index + 1).padStart(2, "0")}</span>
+              <span className="text-base font-bold text-brand-text">{String(index + 1).padStart(2, "0")}</span>
               <h3 className="mt-2 text-lg font-bold uppercase tracking-tight">{step.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.description}</p>
             </li>

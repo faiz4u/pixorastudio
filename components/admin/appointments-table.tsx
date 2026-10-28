@@ -6,7 +6,7 @@ import { format } from "date-fns";
 import { toast } from "sonner";
 import { Trash2 } from "lucide-react";
 import { updateAppointmentStatus, deleteAppointment } from "@/lib/actions/appointments";
-import { TIME_SLOT_LABELS } from "@/lib/validation/appointment";
+import { TIME_SLOT_LABELS } from "@/lib/validation/appointment-options";
 import type { AppointmentStatus, Database } from "@/types/database";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";

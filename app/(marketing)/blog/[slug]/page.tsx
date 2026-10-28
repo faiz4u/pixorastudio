@@ -92,7 +92,7 @@ export default async function BlogPostPage({ params }: PageProps<"/blog/[slug]">
           ]}
         />
         <header>
-          <p className="font-label text-xs uppercase tracking-widest text-brand">
+          <p className="font-label text-xs uppercase tracking-widest text-brand-text">
             <time dateTime={post.date}>{formatPostDate(post.date)}</time> · {author}
           </p>
           <h1 className="mt-4 font-heading text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl">
@@ -109,7 +109,7 @@ export default async function BlogPostPage({ params }: PageProps<"/blog/[slug]">
 
         {service && (
           <aside className="mt-10 flex flex-col items-start gap-5 rounded-3xl border border-brand/40 bg-background p-8">
-            <p className="font-label text-xs uppercase tracking-widest text-brand">Work with us</p>
+            <p className="font-label text-xs uppercase tracking-widest text-brand-text">Work with us</p>
             <h2 className="text-2xl font-bold">{service.h1}</h2>
             <p className="text-muted-foreground">{service.summary}</p>
             <Link href={servicePath(service.slug)} className={primaryCta}>

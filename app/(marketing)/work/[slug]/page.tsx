@@ -98,7 +98,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
             src={project.coverImageUrl}
             alt={`${project.title} project by Pixora Studio`}
             fill
-            priority
+            preload
             sizes="(max-width: 1280px) 100vw, 1280px"
             className="object-cover"
           />
@@ -171,7 +171,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
               Start a project on WhatsApp <span aria-hidden>&rarr;</span>
             </a>
             {services[0] && (
-              <Link href={servicePath(services[0].slug)} className="self-center text-sm font-semibold text-brand hover:underline">
+              <Link href={servicePath(services[0].slug)} className="self-center text-sm font-semibold text-brand-text hover:underline">
                 More about {services[0].name} in Patna
               </Link>
             )}

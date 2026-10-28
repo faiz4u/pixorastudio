@@ -118,7 +118,7 @@ export default async function ServicePage({ params }: PageProps<"/services/[slug
             <ol className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2">
               {service.process.map((step, index) => (
                 <li key={step.title} className="flex flex-col gap-2 bg-background p-6">
-                  <span className="text-base font-bold text-brand">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="text-base font-bold text-brand-text">{String(index + 1).padStart(2, "0")}</span>
                   <h3 className="text-lg font-bold uppercase tracking-tight">{step.title}</h3>
                   <p className="text-sm leading-relaxed text-muted-foreground">{step.description}</p>
                 </li>
@@ -139,7 +139,7 @@ export default async function ServicePage({ params }: PageProps<"/services/[slug
                 ? `Starting from ${service.startingFrom}. Fixed quote within one working day.`
                 : "Fixed price, quoted within one working day of your brief."}
             </p>
-            <Link href="/pricing" className="mt-2 inline-block text-sm text-brand hover:underline">
+            <Link href="/pricing" className="mt-2 inline-block text-sm text-brand-text hover:underline">
               See how our pricing works
             </Link>
           </div>

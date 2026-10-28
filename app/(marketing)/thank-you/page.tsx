@@ -24,7 +24,7 @@ export default async function ThankYouPage() {
     <main>
       <PageSection className="border-t-0">
         <div className="mx-auto max-w-2xl py-8 text-center">
-          <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">
+          <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand-text">
             Brief received
           </p>
           <h1 className="font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">
@@ -34,7 +34,7 @@ export default async function ThankYouPage() {
           <ol className="mt-6 flex flex-col gap-4 text-left">
             {NEXT_STEPS.map((step, index) => (
               <li key={step} className="flex gap-4 rounded-2xl border border-border bg-background p-5">
-                <span className="text-base font-bold text-brand">{String(index + 1).padStart(2, "0")}</span>
+                <span className="text-base font-bold text-brand-text">{String(index + 1).padStart(2, "0")}</span>
                 <span>{step}</span>
               </li>
             ))}

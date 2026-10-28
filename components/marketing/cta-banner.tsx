@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getSiteImage } from "@/lib/content/get-site-content";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/marketing/reveal";
@@ -7,10 +8,10 @@ export async function CtaBanner({ href = "#contact" }: { href?: string }) {
   const ctaImage = await getSiteImage("cta_banner");
 
   return (
-    <section
-      className="relative overflow-hidden bg-primary px-6 py-12 text-primary-foreground sm:px-10 sm:py-16 lg:px-20 lg:py-16"
-      style={{ backgroundImage: `url(${ctaImage.url})`, backgroundSize: "cover", backgroundPosition: "center" }}
-    >
+    <section className="relative isolate overflow-hidden bg-primary px-6 py-12 text-primary-foreground sm:px-10 sm:py-16 lg:px-20 lg:py-16">
+      {/* next/image instead of a CSS background: resized, served as WebP/AVIF
+          and lazy-loaded, since this banner always sits near the page end. */}
+      <Image src={ctaImage.url} alt="" fill sizes="100vw" className="-z-10 object-cover object-center" />
       <Reveal className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
         <div>
           <p className="mb-4 font-label text-xs font-semibold uppercase tracking-[0.3em] text-white/70">

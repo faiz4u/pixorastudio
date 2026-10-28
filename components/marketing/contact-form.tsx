@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { trackEvent } from "@/components/analytics";
 import { ConsentCheckbox } from "@/components/marketing/consent-checkbox";
 import { submitLead, type LeadActionState } from "@/lib/actions/leads";
-import { PROJECT_TYPE_OPTIONS, BUDGET_RANGE_OPTIONS } from "@/lib/validation/lead";
+import { PROJECT_TYPE_OPTIONS, BUDGET_RANGE_OPTIONS } from "@/lib/validation/lead-options";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";

@@ -23,7 +23,7 @@ export async function WhySection() {
       <div className="relative z-10 mx-auto grid max-w-7xl items-stretch gap-5 lg:grid-cols-2">
         <Reveal direction="left">
           <div>
-            <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand">
+            <p className="mb-5 font-label text-xs font-semibold uppercase tracking-[0.3em] text-brand-text">
               Why Pixora
             </p>
             <h2 className="max-w-lg font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl">
